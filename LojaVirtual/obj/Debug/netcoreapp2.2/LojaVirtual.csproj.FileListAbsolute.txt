@@ -18,3 +18,17 @@ C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVir
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.pdb
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.genruntimeconfig.cache
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.CopyComplete
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVirtual.Views.pdb
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.TagHelpers.input.cache
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.TagHelpers.output.cache
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.RazorCoreGenerate.cache
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Visualizar.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.RazorTargetAssemblyInfo.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.Views.pdb
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\Contato.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\CadastroCliente.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\CarrinhoCompras.cshtml.g.cs
