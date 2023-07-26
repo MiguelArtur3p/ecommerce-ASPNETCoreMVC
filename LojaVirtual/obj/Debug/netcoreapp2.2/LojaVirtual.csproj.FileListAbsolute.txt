@@ -34,3 +34,4 @@ C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\V
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\CarrinhoCompras.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.Libraries.Lang.Mensagem.resources
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.GenerateResource.cache
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs

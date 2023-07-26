@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using LojaVirtual.Database;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using LojaVirtual.Repositories;
+using LojaVirtual.Repositories.Interfaces;
 
 namespace LojaVirtual
 {
@@ -24,6 +30,8 @@ namespace LojaVirtual
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<INewsLetterRepository, NewsLetterEmailRepository>();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -31,8 +39,15 @@ namespace LojaVirtual
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            //Session - Configuração
+            services.AddMemoryCache(); //Guardar os dados na memória
+            services.AddSession(options=> {});
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            
+            services.AddDbContext<LojaVirtualContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("LojaVirtualContext"), builder =>
+                    builder.MigrationsAssembly("LojaVirtual")));
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +68,7 @@ namespace LojaVirtual
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseSession();
            
             
             app.UseMvc(routes =>

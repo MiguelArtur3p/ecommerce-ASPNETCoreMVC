@@ -7,14 +7,48 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using LojaVirtual.Database;
+using LojaVirtual.Repositories;
+using LojaVirtual.Repositories.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace LojaVirtual.Controllers
 {
     public class HomeController : Controller
     {
+        private IClienteRepository _repositoryCliente;
+        private INewsLetterRepository _repositoryNewsLetter;
+
+        public HomeController(IClienteRepository repositoryCliente, INewsLetterRepository repositoryNewsLetter)
+        {
+            _repositoryCliente = repositoryCliente;
+            _repositoryNewsLetter = repositoryNewsLetter;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
+            
             return View();
+        }
+        [HttpPost]
+        public IActionResult Index([FromForm] NewsLetterEmail newsLetter)
+        {
+            if (ModelState.IsValid)
+            {
+                _repositoryNewsLetter.Cadastrar(newsLetter);
+                TempData["MSG_5"] = "Parabéns! Agora você recebera todas as nossas promoções por email!";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+
+            }
+            return View();
+        }
+        private void NewsLetterEmail()
+        {
+            throw new NotImplementedException();
         }
 
         public IActionResult Contato()
@@ -23,7 +57,7 @@ namespace LojaVirtual.Controllers
         }
         public IActionResult ContatoAcao()
         {
-            try 
+            try
             {
                 Contato contato = new Contato();
                 contato.Nome = HttpContext.Request.Form["nome"];
@@ -32,8 +66,8 @@ namespace LojaVirtual.Controllers
 
                 var ListaMensagens = new List<ValidationResult>();
                 var contexto = new ValidationContext(contato);
-                bool isValid=Validator.TryValidateObject(contato, contexto, ListaMensagens,true);
-                
+                bool isValid = Validator.TryValidateObject(contato, contexto, ListaMensagens, true);
+
                 if (isValid)
                 {
                     ContatoEmail.EnviarContatoPorEmail(contato);
@@ -44,28 +78,76 @@ namespace LojaVirtual.Controllers
                     StringBuilder sb = new StringBuilder();
                     foreach (var Texto in ListaMensagens)
                     {
-                        sb.Append(Texto.ErrorMessage+"<br/>");
+                        sb.Append(Texto.ErrorMessage + "<br/>");
                     }
                     ViewData["MSG_E"] = sb.ToString();
                     ViewData["CONTATO"] = contato;
                 }
-                
+
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ViewData["MSG_E"] = "Opps! Tivemos um erro, tente novamento mais tarde!";
                 //TODO - Emplementar Log
             }
-            
+
             return View("Contato");
         }
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Login([FromForm]Cliente cliente)
+        {
+            if(cliente.Email=="miguelservemail@gmail.com" && cliente.Senha == "1234")
+            {
+                HttpContext.Session.Set("ID", new byte[] { 52 });
+                HttpContext.Session.SetString("Email",cliente.Email);
+                HttpContext.Session.SetInt32("Idade",25);
+                return new ContentResult() { Content = "Logado" };         
+            }
+            else
+            {
+                return new ContentResult() { Content = "Não Logado" };
+
+                //NÃO LOGADO
+            }
+           
+        }
+        [HttpGet]
+        public IActionResult Painel()
+        {
+            byte[] UsuarioID;
+            if (HttpContext.Session.TryGetValue("ID", out UsuarioID))
+            {
+                return new ContentResult() { Content = "Usuario: " + UsuarioID[0] +"Email: "+HttpContext.Session.GetString("Email")+"Idade: "+HttpContext.Session.GetInt32("Idade") +". Logado" };
+            }
+            else
+            {
+
+                return new ContentResult() { Content = "Acesso Negado! " };
+            }
+
+        }
+        [HttpGet]
         public IActionResult CadastroCliente()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CadastroCliente([FromForm] Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                _repositoryCliente.Cadastrar(cliente);
+
+                TempData["MSG_S"] = "Cadastro realizado com sucesso!";
+                //TODO - Implementar redirecionamentos diferentes
+                return RedirectToAction(nameof(CadastroCliente));
+            }
             return View();
         }
         public IActionResult CarrinhoCompras()

@@ -13,9 +13,36 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#line 2 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
+using LojaVirtual.Models;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae", @"/Views/Home/CarrinhoCompras.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dbe432dc0fde64388285e47294a860c879dd4e8c", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_CarrinhoCompras : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
+        #line hidden
+        #pragma warning disable 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
+        #pragma warning restore 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
+        #pragma warning disable 0169
+        private string __tagHelperStringValueBuffer;
+        #pragma warning restore 0169
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
+        {
+            get
+            {
+                if (__backed__tagHelperScopeManager == null)
+                {
+                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
+                }
+                return __backed__tagHelperScopeManager;
+            }
+        }
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -28,7 +55,7 @@ namespace AspNetCore
 
 #line default
 #line hidden
-            BeginContext(53, 2754, true);
+            BeginContext(53, 2057, true);
             WriteLiteral(@"
 <main role=""main"">
 
@@ -78,10 +105,87 @@ namespace AspNetCore
                             <td>
                                 <select class=""form-control"">
                            ");
-            WriteLiteral(@"         <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+            WriteLiteral("         ");
+            EndContext();
+            BeginContext(2110, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae5618", async() => {
+                BeginContext(2118, 1, true);
+                WriteLiteral("1");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(2128, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(2166, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae6825", async() => {
+                BeginContext(2174, 1, true);
+                WriteLiteral("2");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(2184, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(2222, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae8032", async() => {
+                BeginContext(2230, 1, true);
+                WriteLiteral("3");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(2240, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(2278, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae9239", async() => {
+                BeginContext(2286, 1, true);
+                WriteLiteral("4");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(2296, 511, true);
+            WriteLiteral(@"
                                 </select>
                             </td>
                             <td>
@@ -102,7 +206,7 @@ namespace AspNetCore
             EndContext();
             BeginWriteAttribute("href", " href=\"", 3022, "\"", 3029, 0);
             EndWriteAttribute();
-            BeginContext(3030, 1976, true);
+            BeginContext(3030, 1279, true);
             WriteLiteral(@" class=""btn btn-outline-danger""> × Remove</a>
                             </td>
                         </tr>
@@ -121,15 +225,87 @@ namespace AspNetCore
                                             <dd>Orange color</dd>
                                         </dl>
        ");
-            WriteLiteral(@"                             </figcaption>
-                                </figure>
-                            </td>
-                            <td>
-                                <select class=""form-control"">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+            WriteLiteral("                             </figcaption>\r\n                                </figure>\r\n                            </td>\r\n                            <td>\r\n                                <select class=\"form-control\">\r\n                                    ");
+            EndContext();
+            BeginContext(4309, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae13012", async() => {
+                BeginContext(4317, 1, true);
+                WriteLiteral("1");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(4327, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(4365, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae14220", async() => {
+                BeginContext(4373, 1, true);
+                WriteLiteral("2");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(4383, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(4421, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae15428", async() => {
+                BeginContext(4429, 1, true);
+                WriteLiteral("3");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(4439, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(4477, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae16636", async() => {
+                BeginContext(4485, 1, true);
+                WriteLiteral("4");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(4495, 511, true);
+            WriteLiteral(@"
                                 </select>
                             </td>
                             <td>
@@ -150,7 +326,7 @@ namespace AspNetCore
             EndContext();
             BeginWriteAttribute("href", " href=\"", 5221, "\"", 5228, 0);
             EndWriteAttribute();
-            BeginContext(5229, 1986, true);
+            BeginContext(5229, 1289, true);
             WriteLiteral(@" class=""btn btn-outline-danger btn-round""> × Remove</a>
                             </td>
                         </tr>
@@ -174,10 +350,87 @@ namespace AspNetCore
                             </td>
                             <td>
                                 <select class=""form-control"">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                    ");
+            EndContext();
+            BeginContext(6518, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae20411", async() => {
+                BeginContext(6526, 1, true);
+                WriteLiteral("1");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(6536, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(6574, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae21619", async() => {
+                BeginContext(6582, 1, true);
+                WriteLiteral("2");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(6592, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(6630, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae22827", async() => {
+                BeginContext(6638, 1, true);
+                WriteLiteral("3");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(6648, 38, true);
+            WriteLiteral("\r\n                                    ");
+            EndContext();
+            BeginContext(6686, 18, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43a07e9e10d2e088fa1ed6abd2dd26cac4b674ae24035", async() => {
+                BeginContext(6694, 1, true);
+                WriteLiteral("4");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(6704, 511, true);
+            WriteLiteral(@"
                                 </select>
                             </td>
                             <td>
