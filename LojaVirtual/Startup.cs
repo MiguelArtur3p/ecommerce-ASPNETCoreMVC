@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LojaVirtual.Repositories;
 using LojaVirtual.Repositories.Interfaces;
+using LojaVirtual.Libraries.Sessao;
+using LojaVirtual.Libraries.Login;
 
 namespace LojaVirtual
 {
@@ -30,8 +32,10 @@ namespace LojaVirtual
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterEmailRepository>();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -42,6 +46,8 @@ namespace LojaVirtual
             //Session - Configuração
             services.AddMemoryCache(); //Guardar os dados na memória
             services.AddSession(options=> {});
+            services.AddScoped<Sessao>();
+            services.AddScoped<LoginCliente>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
             services.AddDbContext<LojaVirtualContext>(options =>

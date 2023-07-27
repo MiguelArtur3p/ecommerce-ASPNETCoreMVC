@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iGs/oQ66ZIZIlK+cHA58WkzTa+Z7b+098FhLwBHmGygsUPMsnWHAdgktmCX3eR/gwVBgnJ430sdjymYwNUeH8A==",
+  "dgSpecHash": "Hb2502S5u5ttIxZ8sFiiVQWZwZm1e+wuLMVTM38nQLWWEWV6/6Oyac8o014M9pEYWkRHxmd/LgAq56IyUnVVLw==",
   "success": true,
   "projectFilePath": "C:\\ADS\\CURSO_C#\\Projetos\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
   "expectedPackageFiles": [
@@ -187,7 +187,7 @@
     "C:\\Users\\Miguel\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\2.2.4\\microsoft.visualstudio.web.codegenerators.mvc.2.2.4.nupkg.sha512",
     "C:\\Users\\Miguel\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\Miguel\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\Miguel\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Miguel\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
     "C:\\Users\\Miguel\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\Miguel\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\Miguel\\.nuget\\packages\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",
