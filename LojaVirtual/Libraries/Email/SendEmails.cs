@@ -1,4 +1,5 @@
 ﻿using LojaVirtual.Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace LojaVirtual.Libraries.Email
 {
-    public class ContatoEmail
+    public class SendEmails
     {
-        public static void EnviarContatoPorEmail(Contato contato)
+        private SmtpClient _smtp;
+        private IConfiguration _configuration;
+        public SendEmails(SmtpClient smtp,IConfiguration configuration)
         {
-            /*
-             * SMTP -> Servidor que vai enviar a mensagem.
-             */
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("miguelservemail@gmail.com", "kworoeyoeahjmqso");
-            smtp.EnableSsl = true;
-
+            _configuration = configuration;
+            _smtp = smtp;
+        }
+        public void EnviarContatoPorEmail(Contato contato)
+        {
+           
             string corpoMsg = string.Format("<h2>Conato - Loja Virtual </h2>"
                 + "<b>Nome: </b>{0} <br />"
                 + "<b>E-mail: </b>{1} <br />"
@@ -30,13 +31,13 @@ namespace LojaVirtual.Libraries.Email
              * MailMessage -> Construir a mensagem
              */
             MailMessage mensagem = new MailMessage();
-            mensagem.From = new MailAddress("miguelservemail@gmail.com");
+            mensagem.From = new MailAddress(_configuration.GetValue<string>("Email:Username"));
             mensagem.To.Add(new MailAddress("miguelservemail@gmail.com"));
             mensagem.Subject = "Contato - LojaVirtual - E-mail: " + contato.Email; //assunto
             mensagem.Body = corpoMsg;
             mensagem.IsBodyHtml = true; //para aceitar html no copro da msg
 
-            smtp.Send(mensagem);//ENVIA VIA SMTP
+            _smtp.Send(mensagem);//ENVIA VIA SMTP
         }
     }
 }

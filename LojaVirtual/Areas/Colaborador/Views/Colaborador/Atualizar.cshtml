@@ -1,11 +1,13 @@
 ﻿@model LojaVirtual.Models.Colaborador
 @{
-    ViewData["Title"] = "Cadastrar";
+    ViewData["Title"] = "Atualizar";
 }
 
-<h1>Cadastrar</h1>
+<h1>Atualizar</h1>
 
 <form method="post">
+    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="Tipo"/>
     <div class="mb-3">
         <label asp-for="Nome">Nome</label>
         <input asp-for="Nome" class="form-control" placeholder="Digite o nome do colaborador">
@@ -16,6 +18,5 @@
         <input asp-for="Email" class="form-control" placeholder="Digite o E-mail">
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
-    
     <button type="submit" class="btn btn-primary">Salvar</button> <a asp-action="Index" class="btn btn-info">Voltar</a>
 </form>

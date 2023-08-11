@@ -74,7 +74,7 @@ namespace LojaVirtual.Controllers
 
                 if (isValid)
                 {
-                    ContatoEmail.EnviarContatoPorEmail(contato);
+                    SendEmails.EnviarContatoPorEmail(contato);
                     ViewData["MSG_S"] = "Mensagem de contato enviado com sucesso";
                 }
                 else
