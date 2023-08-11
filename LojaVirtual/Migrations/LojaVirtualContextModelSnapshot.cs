@@ -19,23 +19,47 @@ namespace LojaVirtual.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("LojaVirtual.Models.Categoria", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CategoriaPaiId");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<string>("Slug");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriaPaiId");
+
+                    b.ToTable("Categorias");
+                });
+
             modelBuilder.Entity("LojaVirtual.Models.Cliente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CPF");
+                    b.Property<string>("CPF")
+                        .IsRequired();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
                     b.Property<DateTime>("Nascimento");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("Senha");
+                    b.Property<string>("Senha")
+                        .IsRequired();
 
-                    b.Property<string>("Sexo");
+                    b.Property<string>("Sexo")
+                        .IsRequired();
 
                     b.Property<string>("Telefone");
 
@@ -44,7 +68,7 @@ namespace LojaVirtual.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("LojaVirtual.Models.NewsLetterEmail", b =>
+            modelBuilder.Entity("LojaVirtual.Models.Colaborador", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -52,9 +76,36 @@ namespace LojaVirtual.Migrations
 
                     b.Property<string>("Email");
 
+                    b.Property<string>("Nome");
+
+                    b.Property<string>("Senha");
+
+                    b.Property<string>("Tipo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colaboradores");
+                });
+
+            modelBuilder.Entity("LojaVirtual.Models.NewsLetterEmail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
                     b.HasKey("Id");
 
                     b.ToTable("NewsLetterEmails");
+                });
+
+            modelBuilder.Entity("LojaVirtual.Models.Categoria", b =>
+                {
+                    b.HasOne("LojaVirtual.Models.Categoria", "CategoriaPai")
+                        .WithMany()
+                        .HasForeignKey("CategoriaPaiId");
                 });
 #pragma warning restore 612, 618
         }

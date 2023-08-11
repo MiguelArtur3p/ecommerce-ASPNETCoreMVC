@@ -35,3 +35,15 @@ C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\V
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.Libraries.Lang.Mensagem.resources
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.GenerateResource.cache
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\Login.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\RecuperarSenha.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\CadastrarNovaSenha.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\_ViewImports.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Shared\_Layout.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\_ViewStart.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\Painel.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Categoria\Index.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Categoria\Cadastrar.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Categoria\Atualizar.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Colaborador\Index.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Colaborador\Cadastrar.cshtml.g.cs

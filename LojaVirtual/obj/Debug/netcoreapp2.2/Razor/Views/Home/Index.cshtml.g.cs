@@ -18,8 +18,18 @@ using LojaVirtual.Models;
 
 #line default
 #line hidden
+#line 3 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#line 4 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1703aae9bae8b6ca751c3bcdae4eb5b8855c20c5", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dbe432dc0fde64388285e47294a860c879dd4e8c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"90799275c998573c5584c7fde9507bc8004803f8", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LojaVirtual.Models.NewsLetterEmail>
     {
         #pragma warning disable 1998

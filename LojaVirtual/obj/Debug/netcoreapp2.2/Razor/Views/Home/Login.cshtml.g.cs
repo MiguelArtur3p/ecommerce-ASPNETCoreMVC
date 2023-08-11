@@ -18,8 +18,18 @@ using LojaVirtual.Models;
 
 #line default
 #line hidden
+#line 3 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#line 4 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"257dd499ff3d15a80d51ebb7cefe46db74e30f04", @"/Views/Home/Login.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dbe432dc0fde64388285e47294a860c879dd4e8c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"90799275c998573c5584c7fde9507bc8004803f8", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Login : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LojaVirtual.Models.Cliente>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "CadastroCliente", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -107,7 +117,7 @@ using LojaVirtual.Models;
             WriteLiteral("                        ");
             EndContext();
             BeginContext(627, 113, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "257dd499ff3d15a80d51ebb7cefe46db74e30f047954", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "257dd499ff3d15a80d51ebb7cefe46db74e30f048237", async() => {
                 BeginContext(725, 11, true);
                 WriteLiteral("Cadastre-se");
                 EndContext();
@@ -132,12 +142,12 @@ using LojaVirtual.Models;
             WriteLiteral("\r\n                        <h4 class=\"card-title mb-4 mt-1\">Entrar</h4>\r\n                        ");
             EndContext();
             BeginContext(836, 845, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "257dd499ff3d15a80d51ebb7cefe46db74e30f049718", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "257dd499ff3d15a80d51ebb7cefe46db74e30f0410001", async() => {
                 BeginContext(856, 143, true);
                 WriteLiteral("\r\n                            <div class=\"form-group\">\r\n                                <label>E-mail</label>\r\n                                ");
                 EndContext();
                 BeginContext(999, 77, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "257dd499ff3d15a80d51ebb7cefe46db74e30f0410248", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "257dd499ff3d15a80d51ebb7cefe46db74e30f0410532", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -169,7 +179,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                                 ");
                 EndContext();
                 BeginContext(1333, 81, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "257dd499ff3d15a80d51ebb7cefe46db74e30f0412497", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "257dd499ff3d15a80d51ebb7cefe46db74e30f0412781", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

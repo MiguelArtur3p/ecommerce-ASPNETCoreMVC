@@ -35,6 +35,8 @@ namespace LojaVirtual
             services.AddHttpContextAccessor();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterEmailRepository>();
+            services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -45,15 +47,16 @@ namespace LojaVirtual
 
             //Session - Configuração
             services.AddMemoryCache(); //Guardar os dados na memória
-            services.AddSession(options=> {});
+            services.AddSession(options => { });
             services.AddScoped<Sessao>();
             services.AddScoped<LoginCliente>();
+            services.AddScoped<LoginColaborador>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+
             services.AddDbContext<LojaVirtualContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("LojaVirtualContext"), builder =>
                     builder.MigrationsAssembly("LojaVirtual")));
-           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,15 +78,19 @@ namespace LojaVirtual
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
-           
-            
+
+
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                  );
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            
+
         }
     }
 }
