@@ -1,4 +1,4 @@
-﻿
+﻿@inject LojaVirtual.Libraries.Login.LoginColaborador colaborador
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -51,6 +51,15 @@
                                 Produtos
                             </a>
                         </li>
+                        @if (colaborador.GetColaborador().Tipo == "G")
+                        {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Colaborador" asp-action="Index">
+                                <span data-feather="users"></span>
+                                Colaborador
+                            </a>
+                        </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="users"></span>

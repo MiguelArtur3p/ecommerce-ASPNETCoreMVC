@@ -23,6 +23,16 @@ namespace LojaVirtual.Repositories
         public void Atualizar(Colaborador colaborador)
         {
             _lojaVirtualContext.Colaboradores.Update(colaborador);
+            _lojaVirtualContext.Entry(colaborador).Property(a => a.Senha).IsModified = false;
+            _lojaVirtualContext.SaveChanges();
+        }
+
+        public void AtualizarSenha(Colaborador colaborador)
+        {
+            _lojaVirtualContext.Colaboradores.Update(colaborador);
+            _lojaVirtualContext.Entry(colaborador).Property(a => a.Nome).IsModified = false;
+            _lojaVirtualContext.Entry(colaborador).Property(a => a.Email).IsModified = false;
+            _lojaVirtualContext.Entry(colaborador).Property(a => a.Senha).IsModified = false;
             _lojaVirtualContext.SaveChanges();
         }
 
@@ -50,7 +60,10 @@ namespace LojaVirtual.Repositories
             return _lojaVirtualContext.Colaboradores.Find(Id);
         }
 
-   
+        public List<Colaborador> ObterColaboradorPorEmail(string email)
+        {
+           return _lojaVirtualContext.Colaboradores.Where(a => a.Email == email).AsNoTracking().ToList();
+        }
 
         public IPagedList<Colaborador> ObterTodosColaboradores(int? pagina)
         {

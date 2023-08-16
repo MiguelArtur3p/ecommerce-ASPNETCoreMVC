@@ -13,14 +13,14 @@ namespace LojaVirtual.Libraries.Email
     {
         private SmtpClient _smtp;
         private IConfiguration _configuration;
-        public SendEmails(SmtpClient smtp,IConfiguration configuration)
+        public SendEmails(SmtpClient smtp, IConfiguration configuration)
         {
             _configuration = configuration;
             _smtp = smtp;
         }
         public void EnviarContatoPorEmail(Contato contato)
         {
-           
+
             string corpoMsg = string.Format("<h2>Conato - Loja Virtual </h2>"
                 + "<b>Nome: </b>{0} <br />"
                 + "<b>E-mail: </b>{1} <br />"
@@ -38,6 +38,24 @@ namespace LojaVirtual.Libraries.Email
             mensagem.IsBodyHtml = true; //para aceitar html no copro da msg
 
             _smtp.Send(mensagem);//ENVIA VIA SMTP
+        }
+        public void EnviarSenhaCol(Colaborador colaborador)
+        {
+            string corpoMsg = string.Format("<h2>Colaborador - Loja Virtual </h2>"+
+                "Sua senha é: "+
+                "<h3>{0}</h3>",colaborador.Senha);
+            /*
+             * MailMessage -> Construir a mensagem
+             */
+            MailMessage mensagem = new MailMessage();
+            mensagem.From = new MailAddress(_configuration.GetValue<string>("Email:Username"));
+            mensagem.To.Add(new MailAddress(colaborador.Email));
+            mensagem.Subject = "Colaborador - LojaVirtual - Senha do colaborador: " + colaborador.Nome; //assunto
+            mensagem.Body = corpoMsg;
+            mensagem.IsBodyHtml = true; //para aceitar html no copro da msg
+
+            _smtp.Send(mensagem);//ENVIA VIA SMTP
+
         }
     }
 }

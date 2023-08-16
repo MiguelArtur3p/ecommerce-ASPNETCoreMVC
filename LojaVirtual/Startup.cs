@@ -19,6 +19,7 @@ using LojaVirtual.Libraries.Sessao;
 using LojaVirtual.Libraries.Login;
 using System.Net.Mail;
 using System.Net;
+using LojaVirtual.Libraries.Email;
 
 namespace LojaVirtual
 {
@@ -42,7 +43,7 @@ namespace LojaVirtual
             /**
              *SMTP 
              **/
-            
+            services.AddScoped<SendEmails>();
             services.AddScoped<SmtpClient>(options=> {
                 SmtpClient smtp = new SmtpClient()
                 {
@@ -54,7 +55,7 @@ namespace LojaVirtual
                 };
                 return smtp;
             });
-
+            
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
