@@ -106,6 +106,15 @@ namespace LojaVirtual.Libraries.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quantidade não se encontra entre{1} e{2}.
+        /// </summary>
+        public static string MSG_E006 {
+            get {
+                return ResourceManager.GetString("MSG-E006", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registro salvo com sucesso!.
         /// </summary>
         public static string MSG_S001 {

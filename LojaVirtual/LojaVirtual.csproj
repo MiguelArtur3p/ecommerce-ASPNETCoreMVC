@@ -50,6 +50,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Colaborador\Models\" />
+    <Folder Include="wwwroot\uploads\temp\" />
   </ItemGroup>
 
 </Project>

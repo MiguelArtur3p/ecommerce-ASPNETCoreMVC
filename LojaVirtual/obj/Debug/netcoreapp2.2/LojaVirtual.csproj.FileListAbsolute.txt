@@ -49,3 +49,6 @@ C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\A
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Colaborador\Cadastrar.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Colaborador\Atualizar.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Cliente\Index.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Produto\Index.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Produto\Cadastrar.cshtml.g.cs
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Produto\Atualizar.cshtml.g.cs

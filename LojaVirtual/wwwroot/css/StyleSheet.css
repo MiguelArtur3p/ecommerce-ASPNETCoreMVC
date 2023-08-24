@@ -4,3 +4,27 @@
     color: red;
     display: block;
 }
+
+.Imagens .btn-imagem-excluir {
+    position:absolute;
+    z-index: 1;
+    width: 30px; /* largura para o botão */
+    height: 30px; /* altura para o botão */
+    padding: 0;
+    margin: 2px 0 0 -32px; /* margem à esquerda e ao topo metade da medida do botão */
+    border: 0 none;
+}
+
+.Imagens div{
+    text-align:center;
+    margin-bottom:10px;
+    margin-right:-10px;
+}
+
+.input-file{
+    display:none;
+}
+
+.img-upload{
+    cursor:pointer;
+}

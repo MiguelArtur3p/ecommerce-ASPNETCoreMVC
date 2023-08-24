@@ -1,6 +1,7 @@
 ﻿using LojaVirtual.Database;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -38,9 +39,9 @@ namespace LojaVirtual.Repositories
             _lojaVirtualContext.SaveChanges();
         }
 
-        public Produto ObterProduto(int Id)
+        public Produto ObterProduto(int id)
         {
-           return _lojaVirtualContext.Produtos.Find(Id);
+           return _lojaVirtualContext.Produtos.Include(a=>a.Imagens).Where(a=>a.Id==id).FirstOrDefault();
         }
 
         public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa)
@@ -52,7 +53,7 @@ namespace LojaVirtual.Repositories
                 bancoProduto = bancoProduto.Where(a => a.Nome.Contains(pesquisa.Trim()));
             }
 
-            return bancoProduto.ToPagedList<Produto>(NumeroPagina, _conf.GetValue<int>("RegistroPorPagina"));
+            return bancoProduto.Include(a => a.Imagens).ToPagedList<Produto>(NumeroPagina, _conf.GetValue<int>("RegistroPorPagina"));
         }
     }
 }

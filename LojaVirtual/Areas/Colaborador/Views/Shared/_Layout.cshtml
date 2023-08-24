@@ -9,6 +9,7 @@
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>@ViewBag.Title</title>
+    <link href="~/css/StyleSheet.css" rel="stylesheet" type="text/css" />
 
     <!-- Principal CSS do Bootstrap -->
     <link href="/resources/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -51,14 +52,14 @@
                                 Produtos
                             </a>
                         </li>
-                        @if (colaborador.GetColaborador().Tipo == ColaboradorTipoConstant.Gerente)
+                        @if (colaborador.GetColaborador() != null && colaborador.GetColaborador().Tipo == ColaboradorTipoConstant.Gerente)
                         {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Colaborador" asp-action="Index">
-                                <span data-feather="users"></span>
-                                Colaborador
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Colaborador" asp-action="Index">
+                                    <span data-feather="users"></span>
+                                    Colaborador
+                                </a>
+                            </li>
                         }
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Cliente" asp-action="Index">
@@ -126,12 +127,14 @@
     <!-- Foi colocado no final para a página carregar mais rápido -->
     <script src="~/resources/lib/jquery3.3.1/jquery-3.3.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="/resources/lib/jquery3.3.1/jquery-3.3.1.min.js"><\/script>')</script>
-    <script src="~/js/Actions.js"></script>
+    <script src="~/resources/lib/mask/jquery.mask.min.js"></script>
     <script src="~/resources/lib/popper1.14.6/popper.min.js"></script>
     <script src="~/resources/lib/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/resources/lib/feather/feather.js"></script>
     <script src="~/resources/lib/charts/charts.js"></script>
     <script src="~/resources/lib/dashboard/dashboard.js"></script>
+    <script src="~/js/Actions.js"></script>
+
 
     <!-- Ícones -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>

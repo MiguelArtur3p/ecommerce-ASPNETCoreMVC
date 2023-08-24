@@ -15,7 +15,7 @@ namespace LojaVirtual.Repositories.Interfaces
         void Atualizar(Produto produto);
        
         void Excluir(int id);
-        Produto ObterProduto(int Id);
+        Produto ObterProduto(int id);
         IPagedList<Produto> ObterTodosProdutos(int? pagina,string pesquisa);
     }
 }

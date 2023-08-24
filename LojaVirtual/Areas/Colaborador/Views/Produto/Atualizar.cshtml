@@ -1,0 +1,102 @@
+﻿@model LojaVirtual.Models.Produto
+@{
+    ViewData["Title"] = "Atualizar";
+}
+
+<h1>Atualizar</h1>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label asp-for="CategoriaId"></label>
+            <select asp-for="CategoriaId" class="form-control" asp-items="@ViewBag.Categorias">
+                <option value="">Selecione</option>
+            </select>
+            <span asp-validation-for="CategoriaId" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Nome">Nome</label>
+            <input asp-for="Nome" class="form-control" placeholder="Digite o nome do produto" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descricao"></label>
+        <textarea asp-for="Descricao" class="form-control"></textarea>
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label asp-for="Valor"></label>
+            <div class="input-group">
+                <input asp-for="Valor" class="form-control dinheiro" placeholder="Digite o preço do produto" />
+                <div class="input-group-text">R$</div>
+            </div>
+            <span asp-validation-for="Valor" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Quantidade">Quantidade</label>
+            <div class="input-group">
+                <input asp-for="Quantidade" type="number" class="form-control" placeholder="Digite a quantidade de produtos" />
+                <div class="input-group-text">unid</div>
+            </div>
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h2>Medidas</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <label asp-for="Peso"></label>
+            <div class="input-group">
+                <input asp-for="Peso" class="form-control" />
+                <div class="input-group-text">Kg</div>
+            </div>
+            <span asp-validation-for="Peso" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Largura"></label>
+            <div class="input-group">
+                <input asp-for="Largura" type="number" class="form-control" />
+                <div class="input-group-text">Cm</div>
+            </div>
+            <span asp-validation-for="Largura" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="Altura"></label>
+            <div class="input-group">
+                <input asp-for="Altura" type="number" class="form-control" />
+                <div class="input-group-text">Cm</div>
+            </div>
+            <span asp-validation-for="Altura" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="Comprimento"></label>
+            <div class="input-group">
+                <input asp-for="Comprimento" class="form-control" />
+                <div class="input-group-text">Cm</div>
+            </div>
+            <span asp-validation-for="Comprimento" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <br />
+    <h2>Imagens</h2>
+    <div class="row Imagens">
+        @for (int i = 0; i < 12; i++)
+        {
+            <div class="col-md-2">
+
+                <img src="~/img/Imagem-padrao.png" class="img-thumbnail" />
+                <div class="btn btn-danger btn-imagem-excluir">X</div>
+
+            </div>
+        }
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Salvar</button> <a asp-action="Index" class="btn btn-info">Voltar</a>
+</form>
