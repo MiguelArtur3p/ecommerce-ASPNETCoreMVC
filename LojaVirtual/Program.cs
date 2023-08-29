@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore;
+﻿using LojaVirtual.Libraries.Bug;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -14,6 +15,7 @@ namespace LojaVirtual
     {
         public static void Main(string[] args)
         {
+            CurrentDirectoryHelpers.SetCurrentDirectory();
             CreateWebHostBuilder(args).Build().Run();
         }
 
