@@ -8,6 +8,8 @@ namespace LojaVirtual.Repositories.Interfaces
 {
     public interface IImagemRepository
     {
+        void CadastrarImagens(List<Imagem> ListaImagem);
+
         void Cadastrar(Imagem imagem);
         void Excluir(int id);
         void ExcluirImagensDoProduto(int produtoId);

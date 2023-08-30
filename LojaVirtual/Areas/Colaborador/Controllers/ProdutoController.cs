@@ -16,10 +16,12 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
     {
         private IProdutoRepository _produtoRepository;
         private ICategoriaRepository _categoriaRepository;
-        public ProdutoController(IProdutoRepository produtoRepository, ICategoriaRepository categoriaRepository)
+        private IImagemRepository _imagemRepostiory;
+        public ProdutoController(IProdutoRepository produtoRepository, ICategoriaRepository categoriaRepository, IImagemRepository imagemRepository)
         {
             _produtoRepository = produtoRepository;
             _categoriaRepository = categoriaRepository;
+            _imagemRepostiory = imagemRepository;
         }
         public IActionResult Index(int? pagina, string pesquisa)
         {
@@ -29,7 +31,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
-            ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a=> new SelectListItem(a.Nome, a.Id.ToString()));
+            ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View();
         }
         [HttpPost]
@@ -38,25 +40,30 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             if (ModelState.IsValid)
             {
                 _produtoRepository.Cadastrar(produto);
-                new List<string>(Request.Form["imagem"]);
-                List<string> ListaCaminhoDef=GerenciadorArquivo.MoverImagensProduto(new List<string>(Request.Form["imagem"]), produto.Id.ToString());
+
+                List<Imagem> ListaImagem = GerenciadorArquivo.MoverImagensProduto(new List<string>(Request.Form["imagem"]), produto.Id);
+                _imagemRepostiory.CadastrarImagens(ListaImagem);
                 TempData["MSG_S"] = Mensagem.MSG_S001;
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+            else
+            {
+                ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+                produto.Imagens =new List<string>(Request.Form["imagem"]).Where(a=> a.Trim().Length>0).Select(a => new Imagem() { Caminho = a }).ToList();
+                return View(produto);
+            }
 
-            return View();
         }
         [HttpGet]
         public IActionResult Atualizar(int id)
         {
             ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
-            Produto produto =_produtoRepository.ObterProduto(id);
+            Produto produto = _produtoRepository.ObterProduto(id);
 
             return View(produto);
         }
         [HttpPost]
-        public IActionResult Atualizar(Produto produto,int id)
+        public IActionResult Atualizar(Produto produto, int id)
         {
             ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             if (ModelState.IsValid)
