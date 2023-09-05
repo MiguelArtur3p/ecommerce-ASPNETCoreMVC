@@ -1,4 +1,5 @@
 ﻿using LojaVirtual.Libraries.Arquivo;
+using LojaVirtual.Libraries.Filtro;
 using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories.Interfaces;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
     [Area("Colaborador")]
+    [ColaboradorAutorizacao]
     public class ProdutoController : Controller
     {
         private IProdutoRepository _produtoRepository;
@@ -65,15 +67,34 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpPost]
         public IActionResult Atualizar(Produto produto, int id)
         {
-            ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             if (ModelState.IsValid)
             {
                 _produtoRepository.Atualizar(produto);
+
+                List<Imagem> ListaImagem = GerenciadorArquivo.MoverImagensProduto(new List<string>(Request.Form["imagem"]), produto.Id);
+                _imagemRepostiory.ExcluirImagensDoProduto(produto.Id);
+
+                _imagemRepostiory.CadastrarImagens(ListaImagem);
                 TempData["MSG_S"] = Mensagem.MSG_S001;
                 return RedirectToAction(nameof(Index));
             }
-
-            return View();
+            else
+            {
+                ViewBag.Categorias = _categoriaRepository.ObterTodasCategoria().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+                produto.Imagens = new List<string>(Request.Form["imagem"]).Where(a => a.Trim().Length > 0).Select(a => new Imagem() { Caminho = a }).ToList();
+                return View(produto);
+            }         
+        }
+        [HttpGet]
+        [ValidateHtppReferer]
+        public IActionResult Excluir(int id)
+        {
+            Produto produto = _produtoRepository.ObterProduto(id);
+            GerenciadorArquivo.ExcluirImagensProduto(produto.Imagens.ToList());
+            _imagemRepostiory.ExcluirImagensDoProduto(id);
+            _produtoRepository.Excluir(id);
+            TempData["MSG_S"] = Mensagem.MSG_S002;
+            return RedirectToAction(nameof(Index));
         }
     }
 }

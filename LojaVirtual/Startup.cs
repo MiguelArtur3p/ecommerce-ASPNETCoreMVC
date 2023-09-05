@@ -73,7 +73,9 @@ namespace LojaVirtual
             services.AddScoped<Sessao>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options=> {
+                options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Campo obrigatorio!");
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<LojaVirtualContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("LojaVirtualContext"), builder =>

@@ -11,7 +11,7 @@ namespace LojaVirtual.Repositories.Interfaces
         void CadastrarImagens(List<Imagem> ListaImagem);
 
         void Cadastrar(Imagem imagem);
-        void Excluir(int id);
+        void Excluir(string caminho);
         void ExcluirImagensDoProduto(int produtoId);
     }
 }

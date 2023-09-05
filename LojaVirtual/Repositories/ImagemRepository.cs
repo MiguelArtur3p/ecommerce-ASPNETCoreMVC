@@ -36,11 +36,15 @@ namespace LojaVirtual.Repositories
             _lojaVirtualContext.SaveChanges();
         }
 
-        public void Excluir(int id)
+        public void Excluir(string caminho)
         {
-            Imagem imagem = _lojaVirtualContext.Imagens.Find(id);
-            _lojaVirtualContext.Imagens.Remove(imagem);
-            _lojaVirtualContext.SaveChanges();
+            Imagem imagem = _lojaVirtualContext.Imagens.Where(a => a.Caminho == caminho).FirstOrDefault();
+            if (imagem != null)
+            {
+
+                _lojaVirtualContext.Imagens.Remove(imagem);
+                _lojaVirtualContext.SaveChanges();
+            }
         }
 
         public void ExcluirImagensDoProduto(int produtoId)
@@ -53,5 +57,9 @@ namespace LojaVirtual.Repositories
             }
             _lojaVirtualContext.SaveChanges();
         }
+
+
+
+
     }
 }

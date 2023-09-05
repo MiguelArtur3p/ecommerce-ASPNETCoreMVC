@@ -12,7 +12,7 @@
 
 function AjaxUploadImagemProduto() {
     $(".img-upload").click(function () {
-        $(this).parent().find(".input-file").click();
+        $(this).parent().parent().find(".input-file").click();
     });
     $(".btn-imagem-excluir").click(function () {
         var CampoHidden = $(this).parent().find("input[name=imagem]");
@@ -23,14 +23,14 @@ function AjaxUploadImagemProduto() {
             type: "GET",
             url: "/Colaborador/Imagem/Deletar?caminho=" + CampoHidden.val(),
             success: function () {
-                
+
                 Imagem.attr("src", "/img/Imagem-padrao.png");
                 BtnExcluir.addClass("btn-ocultar");
                 CampoHidden.val("");
                 InputFile.val("");
             },
             error: function () {
-                
+
             },
         })
     });
@@ -44,6 +44,9 @@ function AjaxUploadImagemProduto() {
         var CampoHidden = $(this).parent().find("input[name=imagem]");
         var Imagem = $(this).parent().find(".img-upload");
         var BtnExcluir = $(this).parent().find(".btn-imagem-excluir");
+        //apresenta loading
+        Imagem.attr("src", "/img/loading.gif");
+        Imagem.addClass("thumb");
         //TODO - Resquisição ajax enviando o formulario
         $.ajax({
             type: "POST",
@@ -51,16 +54,21 @@ function AjaxUploadImagemProduto() {
             data: Formulario,
             contentType: false,
             processData: false,
-            success: function (data) {                
+            success: function (data) {
                 var caminho = data.caminho;
                 Imagem.attr("src", caminho);
+                Imagem.removeClass("thumb");
                 CampoHidden.val(caminho);
                 BtnExcluir.removeClass("btn-ocultar");
+
             },
             error: function () {
                 alert("Erro no envio do arquivo");
+                Imagem.attr("src", "/img/Imagem-padrao.png");
+                Imagem.removeClass("thumb");
+
             },
-                            
+
         });
     });
 }
