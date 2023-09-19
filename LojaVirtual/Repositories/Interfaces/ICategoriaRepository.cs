@@ -15,6 +15,8 @@ namespace LojaVirtual.Repositories.Interfaces
         void Atualizar(Categoria categoria);
         void Excluir(int id);
         Categoria ObterCategoria(int id);
+        Categoria ObterCategoria(string Slug);
+        IEnumerable<Categoria> ObterCategoriasRecursivas(Categoria categoriaPai);
         IEnumerable<Categoria> ObterTodasCategoria();
        IPagedList<Categoria> ObterTodasCategoria(int? pagina);
     }

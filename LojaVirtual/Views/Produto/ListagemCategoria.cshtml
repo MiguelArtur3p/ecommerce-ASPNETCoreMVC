@@ -1,0 +1,21 @@
+﻿@model Categoria
+@{
+    ViewData["Title"] = "ListagemCategoria";
+
+}
+<br style="clear:both" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                <span id="breadcrumb">Categoria>@Model.Nome</span>
+            </h2>
+        </div>
+
+    </div>
+</div>
+
+
+
+@await Component.InvokeAsync("ProdutoListagem");

@@ -45,6 +45,38 @@ namespace LojaVirtual.Repositories
             return _lojaVirtualContext.Categorias.Find(id);
         }
 
+        public Categoria ObterCategoria(string Slug)
+        {
+           return _lojaVirtualContext.Categorias.Where(a=> a.Slug ==Slug).FirstOrDefault();
+        }
+
+        List<Categoria> Categorias;
+        private List<Categoria> ListaCategoriaRecursiva = new List<Categoria>();
+        public IEnumerable<Categoria> ObterCategoriasRecursivas(Categoria categoriaPai)
+        {
+            if (Categorias == null)
+            {
+                Categorias = ObterTodasCategoria().ToList();
+            }
+            
+            if (!ListaCategoriaRecursiva.Exists(a => a.Id == categoriaPai.Id))
+            {
+                ListaCategoriaRecursiva.Add(categoriaPai);
+            }
+            var ListaCategoriaFilho = Categorias.Where(a => a.CategoriaPaiId == categoriaPai.Id).ToList();
+            if (ListaCategoriaFilho.Count() > 0)
+            {
+                ListaCategoriaRecursiva.AddRange(ListaCategoriaFilho.ToList());
+                foreach (var categoria in ListaCategoriaFilho)
+                {
+                    ObterCategoriasRecursivas(categoria);
+                }
+            }
+            return ListaCategoriaRecursiva;
+        }
+        
+       
+
         public IPagedList<Categoria> ObterTodasCategoria(int? pagina)
         {
             int NumeroPagina = pagina ?? 1;

@@ -1,4 +1,5 @@
 ﻿using LojaVirtual.Models;
+using LojaVirtual.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +10,30 @@ namespace LojaVirtual.Controllers
 {
     public class ProdutoController : Controller
     {
-        public ActionResult Visualizar()
+        private ICategoriaRepository _categoriaRepository;
+        private IProdutoRepository _produtoReposistory;
+        public ProdutoController(ICategoriaRepository categoriaRepository, IProdutoRepository produtoReposistory)
         {
-            Produto produto=GetProduto();
-            //return new ContentResult(){Content="<h3>Produto -> Visualizar</h3>",ContentType="text/html"};
-            return View(produto);
+            _categoriaRepository = categoriaRepository;
+            _produtoReposistory = produtoReposistory;
+        }
+
+        [HttpGet]
+        [Route("Produto/Categoria/{slug}")]
+        public IActionResult ListagemCategoria(string slug)
+        {
+            
+            return View(_categoriaRepository.ObterCategoria(slug));
+        }
+        
+        [HttpGet]
+        public ActionResult Visualizar(int id)
+        {
+            
+            return View(_produtoReposistory.ObterProduto(id));
 
         }
 
-        private Produto GetProduto()
-        {
-            return new Produto()
-            {
-                Id = 1,
-                Nome = "Xbox One X",
-                Descricao = "Jogue em 4k",
-                Valor = 2000.00M
-            };
-        }
+        
     }
 }

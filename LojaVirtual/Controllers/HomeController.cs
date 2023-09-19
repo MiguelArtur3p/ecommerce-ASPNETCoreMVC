@@ -13,6 +13,7 @@ using LojaVirtual.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using LojaVirtual.Libraries.Login;
 using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Models.ViewModels;
 
 namespace LojaVirtual.Controllers
 {
@@ -22,19 +23,20 @@ namespace LojaVirtual.Controllers
         private IClienteRepository _repositoryCliente;
         private INewsLetterRepository _repositoryNewsLetter;
         private SendEmails _sendEmails;
-
-        public HomeController(IClienteRepository repositoryCliente, INewsLetterRepository repositoryNewsLetter, LoginCliente loginCliente,SendEmails sendEmails)
+        private IProdutoRepository _produtoRepository;
+        public HomeController(IProdutoRepository produtoRepository,IClienteRepository repositoryCliente, INewsLetterRepository repositoryNewsLetter, LoginCliente loginCliente,SendEmails sendEmails)
         {
             _repositoryCliente = repositoryCliente;
             _repositoryNewsLetter = repositoryNewsLetter;
             _loginCliente = loginCliente;
             _sendEmails = sendEmails;
+            _produtoRepository = produtoRepository;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-
+            
             return View();
         }
         [HttpPost]
@@ -43,13 +45,18 @@ namespace LojaVirtual.Controllers
             if (ModelState.IsValid)
             {
                 _repositoryNewsLetter.Cadastrar(newsLetter);
-                TempData["MSG_5"] = "Parabéns! Agora você recebera todas as nossas promoções por email!";
+                TempData["MSG_S1"] = "Parabéns! Agora você recebera todas as nossas promoções por email!";
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-
+              
+                return View();
             }
+            
+        }
+        public IActionResult Categoria()
+        {
             return View();
         }
         private void NewsLetterEmail()

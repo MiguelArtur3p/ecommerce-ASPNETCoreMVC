@@ -16,11 +16,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    <link rel="stylesheet" href="~/resources/lib/pagedlist/PagedList.css" />
+    <link rel="stylesheet" href="~/resources/lib/bootstrap-ecommerce-uikit/ui-ecommerce/plugins/fancybox/fancybox.min.css" />
+
 </head>
 <body>
-   <header>
-       @await Component.InvokeAsync("Menu") 
-   </header>
+    <header>
+        @await Component.InvokeAsync("Menu")
+    </header>
     <div>
         @RenderBody()
     </div>
@@ -38,5 +41,8 @@
     <script src="/resources/lib/jquery3.3.1/jquery-3.3.1.min.js"></script>
     <script src="/resources/lib/popper1.14.6/popper.min.js"></script>
     <script src="/resources/lib/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="/js/ActionVisitante.js"></script>
+    <script src="/resources/lib/bootstrap-ecommerce-uikit/ui-ecommerce/plugins/fancybox/fancybox.min.js"></script>
+
 </body>
 </html>
