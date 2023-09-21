@@ -19,23 +19,33 @@ using LojaVirtual.Models;
 #line default
 #line hidden
 #line 3 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
-using X.PagedList.Mvc.Core;
+using LojaVirtual.Models.ProdutoAgregador;
 
 #line default
 #line hidden
 #line 4 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
-using X.PagedList;
+using X.PagedList.Mvc.Core;
 
 #line default
 #line hidden
 #line 5 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
+#line 6 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
 using LojaVirtual.Models.ViewModels;
 
 #line default
 #line hidden
+#line 7 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Views\_ViewImports.cshtml"
+using LojaVirtual.Models.Constants;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5f8ed435871934bc2ef3b53bcbe813c5d445b481", @"/Views/Produto/Visualizar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1170e6a4cca4a1ba61edd1dc7249eaca9faa03a0", @"/Views/_ViewImports.cshtml")]
-    public class Views_Produto_Visualizar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LojaVirtual.Models.Produto>
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5c00832daa0ee623b7e4419251be0f0d26c88ef1", @"/Views/_ViewImports.cshtml")]
+    public class Views_Produto_Visualizar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LojaVirtual.Models.ProdutoAgregador.Produto>
     {
         #line hidden
         #pragma warning disable 0649
@@ -289,7 +299,7 @@ WriteAttributeValue("", 1527, imagem.Caminho, 1527, 15, false);
                                                 ");
             EndContext();
             BeginContext(4313, 20, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f8ed435871934bc2ef3b53bcbe813c5d445b48113809", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f8ed435871934bc2ef3b53bcbe813c5d445b48114124", async() => {
                 BeginContext(4321, 3, true);
                 WriteLiteral(" 1 ");
                 EndContext();
@@ -309,7 +319,7 @@ WriteAttributeValue("", 1527, imagem.Caminho, 1527, 15, false);
             WriteLiteral("\r\n                                                ");
             EndContext();
             BeginContext(4383, 20, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f8ed435871934bc2ef3b53bcbe813c5d445b48115031", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f8ed435871934bc2ef3b53bcbe813c5d445b48115346", async() => {
                 BeginContext(4391, 3, true);
                 WriteLiteral(" 2 ");
                 EndContext();
@@ -329,7 +339,7 @@ WriteAttributeValue("", 1527, imagem.Caminho, 1527, 15, false);
             WriteLiteral("\r\n                                                ");
             EndContext();
             BeginContext(4453, 20, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f8ed435871934bc2ef3b53bcbe813c5d445b48116253", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f8ed435871934bc2ef3b53bcbe813c5d445b48116568", async() => {
                 BeginContext(4461, 3, true);
                 WriteLiteral(" 3 ");
                 EndContext();
@@ -375,7 +385,7 @@ WriteAttributeValue("", 1527, imagem.Caminho, 1527, 15, false);
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<LojaVirtual.Models.Produto> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<LojaVirtual.Models.ProdutoAgregador.Produto> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

@@ -19,22 +19,32 @@ using LojaVirtual.Models;
 #line default
 #line hidden
 #line 3 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
-using X.PagedList.Mvc.Core;
+using LojaVirtual.Models.ProdutoAgregador;
 
 #line default
 #line hidden
 #line 4 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using LojaVirtual.Models.ViewModels;
+
+#line default
+#line hidden
+#line 6 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#line 7 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using X.PagedList;
 
 #line default
 #line hidden
-#line 5 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+#line 8 "C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using LojaVirtual.Models.Constants;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"411f9c84b6b54b1a87a985866ffb876dc7785945", @"/Areas/Colaborador/Views/Cliente/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6dea797114cbc17efc51fd94700ecd7a2104983d", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"36ac8f81f3eb01f3adb16d2bf1ac5ebe52f89e41", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
     public class Areas_Colaborador_Views_Cliente_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<X.PagedList.IPagedList<LojaVirtual.Models.Cliente>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "get", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -78,7 +88,7 @@ using LojaVirtual.Models.Constants;
             WriteLiteral("\r\n\r\n<h1>Cliente</h1>\r\n<br />\r\n<br />\r\n");
             EndContext();
             BeginContext(194, 325, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "411f9c84b6b54b1a87a985866ffb876dc77859455684", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "411f9c84b6b54b1a87a985866ffb876dc77859456036", async() => {
                 BeginContext(213, 122, true);
                 WriteLiteral("\r\n    <div class=\"mb-3\">\r\n        <label for=\"Nome\">Nome</label>\r\n        <input type=\"text\" name=\"pesquisa\" id=\"pesquisa\"");
                 EndContext();
@@ -226,7 +236,7 @@ WriteAttributeValue("", 344, pesquisa, 344, 9, false);
             WriteLiteral("                                ");
             EndContext();
             BeginContext(1584, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "411f9c84b6b54b1a87a985866ffb876dc778594512795", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "411f9c84b6b54b1a87a985866ffb876dc778594513147", async() => {
                 BeginContext(1666, 9, true);
                 WriteLiteral("Desativar");
                 EndContext();
@@ -272,7 +282,7 @@ WriteAttributeValue("", 344, pesquisa, 344, 9, false);
             WriteLiteral("                                ");
             EndContext();
             BeginContext(1809, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "411f9c84b6b54b1a87a985866ffb876dc778594515620", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "411f9c84b6b54b1a87a985866ffb876dc778594515972", async() => {
                 BeginContext(1894, 6, true);
                 WriteLiteral("Ativar");
                 EndContext();

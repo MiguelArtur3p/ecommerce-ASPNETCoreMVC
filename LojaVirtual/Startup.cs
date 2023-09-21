@@ -21,6 +21,7 @@ using System.Net.Mail;
 using System.Net;
 using LojaVirtual.Libraries.Email;
 using LojaVirtual.Libraries.Middleware;
+using LojaVirtual.Libraries.CarrinhoCompra;
 
 namespace LojaVirtual
 {
@@ -47,6 +48,8 @@ namespace LojaVirtual
             /**
              *SMTP 
              **/
+            services.AddScoped<CarrinhoCompra>();
+            services.AddScoped<LojaVirtual.Libraries.Cookie.Cookie>();
             services.AddScoped<SendEmails>();
             services.AddScoped<SmtpClient>(options=> {
                 SmtpClient smtp = new SmtpClient()
