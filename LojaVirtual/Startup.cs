@@ -22,6 +22,8 @@ using System.Net;
 using LojaVirtual.Libraries.Email;
 using LojaVirtual.Libraries.Middleware;
 using LojaVirtual.Libraries.CarrinhoCompra;
+using AutoMapper;
+using LojaVirtual.Libraries.AutoMapper;
 
 namespace LojaVirtual
 {
@@ -37,6 +39,10 @@ namespace LojaVirtual
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //AutoMapper
+            services.AddAutoMapper(config=>config.AddProfile<MappingProfile>());
+
+
             services.AddHttpContextAccessor();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterEmailRepository>();

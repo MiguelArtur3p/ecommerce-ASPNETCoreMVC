@@ -29,7 +29,6 @@ C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\A
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\CarrinhoCompra\Index.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\CarrinhoCompra\NaoExisteItem.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\CadastroCliente.cshtml.g.cs
-C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\CarrinhoCompras.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\Contato.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.cshtml.g.cs
@@ -57,3 +56,4 @@ C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVir
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.Views.pdb
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.genruntimeconfig.cache
 C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.CopyComplete
+C:\ADS\CURSO_C#\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.AssemblyReference.cache

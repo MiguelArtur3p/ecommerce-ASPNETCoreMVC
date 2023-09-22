@@ -1,4 +1,4 @@
-﻿﻿
+﻿@model List<LojaVirtual.Models.ProdutoAgregador.ProdutoItem> ;
 
 @{
     ViewData["Title"] = "Index";
@@ -7,7 +7,7 @@
 
 <div class="container">
     <section id="order">
-
+        <br />
         <h2 class="title-doc">Carrinho de compras</h2>
 
         <div id="code_cart">
@@ -22,111 +22,49 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <figure class="media">
-                                    <div class="img-wrap"><img src="images/items/1.jpg" class="img-thumbnail img-sm"></div>
-                                    <figcaption class="media-body">
-                                        <h6 class="title text-truncate">Product name goes here </h6>
-                                        <dl class="dlist-inline small">
-                                            <dt>Size: </dt>
-                                            <dd>XXL</dd>
-                                        </dl>
-                                        <dl class="dlist-inline small">
-                                            <dt>Color: </dt>
-                                            <dd>Orange color</dd>
-                                        </dl>
-                                    </figcaption>
-                                </figure>
-                            </td>
-                            <td>
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                            </td>
-                            <td>
-                                <div class="price-wrap">
-                                    <var class="price">R$ 40,00</var>
-                                    <small class="text-muted">(R$ 10,00 cada)</small>
-                                </div> <!-- price-wrap .// -->
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="btn btn-outline-danger"> × Remove</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <figure class="media">
-                                    <div class="img-wrap"><img src="images/items/2.jpg" class="img-thumbnail img-sm"></div>
-                                    <figcaption class="media-body">
-                                        <h6 class="title text-truncate">Product name goes here </h6>
-                                        <dl class="dlist-inline small">
-                                            <dt>Size: </dt>
-                                            <dd>XXL</dd>
-                                        </dl>
-                                        <dl class="dlist-inline small">
-                                            <dt>Color: </dt>
-                                            <dd>Orange color</dd>
-                                        </dl>
-                                    </figcaption>
-                                </figure>
-                            </td>
-                            <td>
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                            </td>
-                            <td>
-                                <div class="price-wrap">
-                                    <var class="price">R$ 40,00</var>
-                                    <small class="text-muted">(R$ 10,00 cada)</small>
-                                </div> <!-- price-wrap .// -->
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="btn btn-outline-danger btn-round"> × Remove</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <figure class="media">
-                                    <div class="img-wrap"><img src="images/items/3.jpg" class="img-thumbnail img-sm"></div>
-                                    <figcaption class="media-body">
-                                        <h6 class="title text-truncate">Product name goes here </h6>
-                                        <dl class="dlist-inline small">
-                                            <dt>Size: </dt>
-                                            <dd>XXL</dd>
-                                        </dl>
-                                        <dl class="dlist-inline small">
-                                            <dt>Color: </dt>
-                                            <dd>Orange color</dd>
-                                        </dl>
-                                    </figcaption>
-                                </figure>
-                            </td>
-                            <td>
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                            </td>
-                            <td>
-                                <div class="price-wrap">
-                                    <var class="price">R$ 40,00</var>
-                                    <small class="text-muted">(R$ 10,00 cada)</small>
-                                </div> <!-- price-wrap .// -->
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="btn btn-outline-danger btn-round"> × Remove</a>
-                            </td>
-                        </tr>
+                        @foreach (ProdutoItem item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <figure class="media">
+                                        <div class="img-wrap"><img href="@item.Imagens" class="img-thumbnail img-sm"></div>
+                                        <figcaption class="media-body">
+                                            <h6 class="title text-truncate">@item.Nome </h6>
+                                            <dl class="dlist-inline small">
+                                                <dt>Size: </dt>
+                                                <dd>XXL</dd>
+                                            </dl>
+                                            <dl class="dlist-inline small">
+                                                <dt>Quantidade: </dt>
+                                                <dd>@item.QuantidadeProdutoCarrinho</dd>
+                                            </dl>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <select class="form-control">
+
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="price-wrap">
+                                        <var class="price">@((item.Valor * item.QuantidadeProdutoCarrinho).ToString("C"))</var>
+                                        <small class="text-muted">(R$ @item.Valor cada)</small>
+                                    </div> <!-- price-wrap .// -->
+                                </td>
+                                <td class="text-right">
+                                    <a asp-controller="CarrinhoCompra" asp-action="RemoverItem" asp-route-id="@item.Id" class="btn btn-outline-danger"> × Remove</a>
+                                </td>
+                            </tr>
+
+                        }
+
+
+
                     </tbody>
                 </table>
             </div> <!-- card.// -->

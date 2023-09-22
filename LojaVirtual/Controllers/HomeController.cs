@@ -154,9 +154,6 @@ namespace LojaVirtual.Controllers
             }
             return View();
         }
-        public IActionResult CarrinhoCompras()
-        {
-            return View();
-        }
+        
     }
 }
