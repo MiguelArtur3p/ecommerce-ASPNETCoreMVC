@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using LojaVirtual.Libraries.Lang;
 
 namespace LojaVirtual.Controllers
 {
@@ -60,11 +61,19 @@ namespace LojaVirtual.Controllers
 
         public IActionResult AlterarQuantidade(int id, int quantidade)
         {
-           var item =new ProdutoItem() { Id = id, QuantidadeProdutoCarrinho = quantidade };
-            _carrinhoCompra.Atualizar(item);
-            return RedirectToAction(nameof(Index));
-
-
+            Produto produto=_produtoRepository.ObterProduto(id);
+            if(quantidade < 1)
+            {
+                return BadRequest(new { mensagem =Mensagem.MSG_E007});
+            }else if(quantidade > produto.Quantidade)
+            {
+                return BadRequest(new { mensagem = Mensagem.MSG_E008 });
+            }else
+            {
+                var item = new ProdutoItem() { Id = id, QuantidadeProdutoCarrinho = quantidade };
+                _carrinhoCompra.Atualizar(item);
+                return Ok();
+            }
         }
         public IActionResult RemoverItem(int id)
         {

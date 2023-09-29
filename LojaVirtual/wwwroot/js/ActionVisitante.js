@@ -2,16 +2,99 @@
     MoverScrollOrdenacao();
     MudarOrdenacao();
     MudarImagemPrincipalProduto();
+    MudarQuantidadeProdutoCarrinho();
+
 });
+function numberToReal(numero) {
+    var numero = numero.toFixed(2).split('.');
+    numero[0] = "R$" + numero[0].split(/(?=(?:...)*$)/).join('.');
+    return numero.join(',');
+}
+function MudarQuantidadeProdutoCarrinho() {
+    $("#order .btn-primary").click(function () {
+        if ($(this).hasClass("diminuir")) {
+            OrquestradorDeAcoesProduto("diminuir", $(this));
+        }
+        if ($(this).hasClass("aumentar")) {
+            OrquestradorDeAcoesProduto("aumentar", $(this));
+
+
+        }
+    });
+}
+
+function OrquestradorDeAcoesProduto(operacao, botao) {
+    OcultarMensagemDeErro();
+    var pai = botao.parent().parent();
+    var produtoId = pai.find(".inputProdutoId").val();
+    var quantidadeEstoque = parseInt(pai.find(".inputQuantidadeEstoque").val());
+    var valorUnitario = parseFloat(pai.find(".inputValorUnitario").val().replace(",", "."));
+    var campoQuantidadeProdutoCarrinho = pai.find(".inputQuantidadeCarrinho");
+    var quantidadeProdutoCarrinhoAntiga = parseInt(campoQuantidadeProdutoCarrinho.val());
+    var campoValor = botao.parent().parent().parent().parent().parent().find(".price");
+    var produto = new ProdutoQuantidadeEValor(produtoId, quantidadeEstoque, valorUnitario, quantidadeProdutoCarrinhoAntiga, 0, campoQuantidadeProdutoCarrinho, campoValor);
+
+    AlteracoesVisuaisProdutoCarrinho(produto, operacao);
+}
+function AlteracoesVisuaisProdutoCarrinho(produto, operacao) {
+    if (operacao == "aumentar") {
+        /* if (produto.quantidadeProdutoCarrinhoAntiga== produto.quantidadeEstoque) {
+             alert("Quantidade indisponivel no estoque!");
+         } else */
+        produto.quantidadeProdutoCarrinhoNova = produto.quantidadeProdutoCarrinhoAntiga + 1;
+        AtualizarQuantidadeEValor(produto);
+        AJAXComunicarAlteracaoQuantidadeProduto(produto);
+    }
+    else if (operacao == "diminuir") {
+        /* if (produto.quantidadeProdutoCarrinhoAntiga == 1) {
+             alert("Caso não deseje este produto clique em Remover!")
+         } else*/
+        produto.quantidadeProdutoCarrinhoNova = produto.quantidadeProdutoCarrinhoAntiga - 1;
+        AtualizarQuantidadeEValor(produto);
+        AJAXComunicarAlteracaoQuantidadeProduto(produto);
+
+    }
+}
+
+function AtualizarQuantidadeEValor(produto) {
+    produto.campoQuantidadeProdutoCarrinho.val(produto.quantidadeProdutoCarrinhoNova);
+
+    var resultado = produto.valorUnitario * produto.quantidadeProdutoCarrinhoNova;
+    produto.campoValor.text(numberToReal(resultado));
+}
+function AJAXComunicarAlteracaoQuantidadeProduto(produto) {
+    $.ajax({
+        type: "GET",
+        url: "/CarrinhoCompra/AlterarQuantidade?id=" + produto.produtoId + "&quantidade=" + produto.quantidadeProdutoCarrinhoNova,
+        success: function () {
+
+
+        },
+        error: function (data) {
+            MostrarMensagemDeErro(data.responseJSON.mensagem);
+           
+            produto.quantidadeProdutoCarrinhoNova = produto.quantidadeProdutoCarrinhoAntiga;
+            AtualizarQuantidadeEValor(produto);
+        },
+    })
+}
+function MostrarMensagemDeErro(mensagem) {
+    $(".alert-danger").css("display", "block");
+    $(".alert-danger").text(mensagem);
+}
+function OcultarMensagemDeErro() {
+    $(".alert-danger").css("display", "none");
+   
+}
 function MudarImagemPrincipalProduto() {
-    $(".img-small-wrap img").click(function(){
+    $(".img-small-wrap img").click(function () {
         var Caminho = $(this).attr("src");
         $(".img-big-wrap img").attr("src", Caminho);
         $(".img-big-wrap a").attr("href", Caminho);
     });
 }
 function MoverScrollOrdenacao() {
-    if (window.location.hash.length >0) {
+    if (window.location.hash.length > 0) {
         var hash = window.location.hash;
         if (hash == "#posicao-produto") {
             window.scrollBy(0, 473);
@@ -36,8 +119,23 @@ function MudarOrdenacao() {
         if ($("#breadcrumb").length > 0) {
             Fragmento = "";
         }
-        var URL=window.location.protocol + "//" + window.location.host + window.location.pathname;
-        var URLComParametros = URL + "?pagina=" + Pagina + "&pesquisa=" + Pesquisa + "&ordenacao=" + Ordenacao +Fragmento;
+        var URL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        var URLComParametros = URL + "?pagina=" + Pagina + "&pesquisa=" + Pesquisa + "&ordenacao=" + Ordenacao + Fragmento;
         window.location.href = URLComParametros;
     });
+}
+
+/*CLASSES*/
+class ProdutoQuantidadeEValor {
+    constructor(produtoId, quantidadeEstoque, valorUnitario, quantidadeProdutoCarrinhoAntiga, quantidadeProdutoCarrinhoNova, campoQuantidadeProdutoCarrinho, campoValor) {
+        this.produtoId = produtoId;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.valorUnitario = valorUnitario;
+
+        this.quantidadeProdutoCarrinhoAntiga = quantidadeProdutoCarrinhoAntiga;
+        this.quantidadeProdutoCarrinhoNova = quantidadeProdutoCarrinhoNova;
+
+        this.campoQuantidadeProdutoCarrinho = campoQuantidadeProdutoCarrinho;
+        this.campoValor = campoValor;
+    }
 }

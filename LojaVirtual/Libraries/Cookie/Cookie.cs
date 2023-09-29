@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using LojaVirtual.Libraries.Seguranca;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +12,18 @@ namespace LojaVirtual.Libraries.Cookie
     public class Cookie
     {
         private IHttpContextAccessor _context;
-        public Cookie(IHttpContextAccessor contexto)
+        private IConfiguration _configuration;
+        public Cookie(IHttpContextAccessor contexto,IConfiguration configuration)
         {
             _context = contexto;
+            _configuration = configuration;
         }
         public void Cadastrar(string key, string valor)
         {
             CookieOptions Options = new CookieOptions();
             Options.Expires = DateTime.Now.AddDays(7);
             _context.HttpContext.Response.Cookies.Append(key, valor, Options);
+            var ValorCrypt = StringCipher.Encrypt(valor, _configuration.GetValue<string>("KeyCrypt"));
 
         }
         public void Atualizar(string key, string valor)
@@ -36,7 +42,9 @@ namespace LojaVirtual.Libraries.Cookie
         }
         public string Consultar(string key)
         {
-            return _context.HttpContext.Request.Cookies[key];
+            var ValorCrypt=_context.HttpContext.Request.Cookies[key];
+            var Valor=StringCipher.Decrypt(ValorCrypt, _configuration.GetValue<string>("KeyCrypt"));
+            return Valor;
         }
         public bool Existe(string key)
         {
