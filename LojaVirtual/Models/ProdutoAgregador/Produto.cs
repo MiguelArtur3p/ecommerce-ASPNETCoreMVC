@@ -23,7 +23,7 @@ namespace LojaVirtual.Models.ProdutoAgregador
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
         [Display(Name = "Preço")]
         [JsonIgnore]
-        public decimal Valor { get; set; }
+        public double Valor { get; set; }
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
         [Range(0, 1000000, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E006")]
         [JsonIgnore]

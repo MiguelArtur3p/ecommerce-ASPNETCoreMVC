@@ -61,7 +61,20 @@ function AtualizarQuantidadeEValor(produto) {
 
     var resultado = produto.valorUnitario * produto.quantidadeProdutoCarrinhoNova;
     produto.campoValor.text(numberToReal(resultado));
+    AtualizarSubtotal();
 }
+
+function AtualizarSubtotal() {
+    var Subtotal = 0;
+
+    var TagsComPrice = $(".price");
+    TagsComPrice.each(function () {
+        var ValorReais = parseFloat($(this).text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
+        Subtotal += ValorReais;
+    })
+    $(".subtotal").text(numberToReal(Subtotal));
+}
+
 function AJAXComunicarAlteracaoQuantidadeProduto(produto) {
     $.ajax({
         type: "GET",
@@ -72,7 +85,7 @@ function AJAXComunicarAlteracaoQuantidadeProduto(produto) {
         },
         error: function (data) {
             MostrarMensagemDeErro(data.responseJSON.mensagem);
-           
+
             produto.quantidadeProdutoCarrinhoNova = produto.quantidadeProdutoCarrinhoAntiga;
             AtualizarQuantidadeEValor(produto);
         },
@@ -84,7 +97,7 @@ function MostrarMensagemDeErro(mensagem) {
 }
 function OcultarMensagemDeErro() {
     $(".alert-danger").css("display", "none");
-   
+
 }
 function MudarImagemPrincipalProduto() {
     $(".img-small-wrap img").click(function () {

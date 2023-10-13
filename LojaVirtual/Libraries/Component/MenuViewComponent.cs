@@ -9,7 +9,7 @@ namespace LojaVirtual.Libraries.Component
 {
     public class MenuViewComponent : ViewComponent
     {
-        
+
         private ICategoriaRepository _categoriaRepository;
         public MenuViewComponent(ICategoriaRepository categoriaRepostiroy)
         {
@@ -17,8 +17,13 @@ namespace LojaVirtual.Libraries.Component
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var ListaCategoria=_categoriaRepository.ObterTodasCategoria().ToList();
+            var ListaCategoria = await Task.Run(() => _categoriaRepository.ObterTodasCategoria().ToList());
             return View(ListaCategoria);
         }
+        //public  IViewComponentResult Invoke()
+        //{
+        //    var ListaCategoria = _categoriaRepository.ObterTodasCategoria().ToList();
+        //    return View(ListaCategoria);
+        //}
     }
 }

@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-
+    double Subtotal=0.0;
 }
 
 <div class="container">
@@ -61,10 +61,14 @@
                                         </div>
                                     </div>
                                 </td>
+                                @{ 
+                                    var ResultadoSubTotalItem = item.Valor * item.QuantidadeProdutoCarrinho;
+                                    Subtotal += ResultadoSubTotalItem;
+                                }
                                 <td>
                                     <div class="price-wrap ">
 
-                                        <var class="price">@((item.Valor * item.QuantidadeProdutoCarrinho).ToString("C"))</var>
+                                        <var class="price">@(ResultadoSubTotalItem.ToString("C"))</var>
                                         <small class="text-muted">(R$ @item.Valor cada)</small>
                                     </div> <!-- price-wrap .// -->
                                 </td>
@@ -118,7 +122,7 @@
                     <div class="box">
                         <dl class="dlist-align">
                             <dt>Subtotal: </dt>
-                            <dd class="text-right">R$ 120,00</dd>
+                            <dd class="text-right subtotal">@Subtotal.ToString("C")</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Frete:</dt>

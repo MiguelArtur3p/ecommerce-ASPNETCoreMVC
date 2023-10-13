@@ -80,12 +80,9 @@ namespace LojaVirtual.Libraries.Seguranca
                         using (var memoryStream = new MemoryStream(cipherTextBytes))
                         {
                             using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                            using (var streamReader = new StreamReader(cryptoStream, Encoding.UTF8))
                             {
-                                var plainTextBytes = new byte[cipherTextBytes.Length];
-                                var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-                                memoryStream.Close();
-                                cryptoStream.Close();
-                                return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
+                                return streamReader.ReadToEnd();
                             }
                         }
                     }

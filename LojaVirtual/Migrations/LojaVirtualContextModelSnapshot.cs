@@ -125,7 +125,7 @@ namespace LojaVirtual.Migrations
                     b.ToTable("NewsLetterEmails");
                 });
 
-            modelBuilder.Entity("LojaVirtual.Models.Produto", b =>
+            modelBuilder.Entity("LojaVirtual.Models.ProdutoAgregador.Produto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -137,17 +137,19 @@ namespace LojaVirtual.Migrations
 
                     b.Property<int>("Comprimento");
 
-                    b.Property<string>("Descricao");
+                    b.Property<string>("Descricao")
+                        .IsRequired();
 
                     b.Property<int>("Largura");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<double>("Peso");
 
                     b.Property<int>("Quantidade");
 
-                    b.Property<decimal>("Valor");
+                    b.Property<double>("Valor");
 
                     b.HasKey("Id");
 
@@ -165,13 +167,13 @@ namespace LojaVirtual.Migrations
 
             modelBuilder.Entity("LojaVirtual.Models.Imagem", b =>
                 {
-                    b.HasOne("LojaVirtual.Models.Produto", "Produto")
+                    b.HasOne("LojaVirtual.Models.ProdutoAgregador.Produto", "Produto")
                         .WithMany("Imagens")
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("LojaVirtual.Models.Produto", b =>
+            modelBuilder.Entity("LojaVirtual.Models.ProdutoAgregador.Produto", b =>
                 {
                     b.HasOne("LojaVirtual.Models.Categoria", "Categoria")
                         .WithMany()

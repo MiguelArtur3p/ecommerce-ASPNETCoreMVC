@@ -22,8 +22,8 @@ namespace LojaVirtual.Libraries.Cookie
         {
             CookieOptions Options = new CookieOptions();
             Options.Expires = DateTime.Now.AddDays(7);
-            _context.HttpContext.Response.Cookies.Append(key, valor, Options);
             var ValorCrypt = StringCipher.Encrypt(valor, _configuration.GetValue<string>("KeyCrypt"));
+            _context.HttpContext.Response.Cookies.Append(key, ValorCrypt, Options);
 
         }
         public void Atualizar(string key, string valor)

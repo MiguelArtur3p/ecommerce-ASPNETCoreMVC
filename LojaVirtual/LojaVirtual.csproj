@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20230729000809_cOLABORADORES.cs" />
-    <Compile Remove="Migrations\20230729000809_cOLABORADORES.Designer.cs" />
+    <Compile Remove="Areas\Colaborador\Models\**" />
+    <Content Remove="Areas\Colaborador\Models\**" />
+    <EmbeddedResource Remove="Areas\Colaborador\Models\**" />
+    <None Remove="Areas\Colaborador\Models\**" />
   </ItemGroup>
 
 
@@ -50,7 +52,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Colaborador\Models\" />
     <Folder Include="wwwroot\uploads\temp\" />
   </ItemGroup>
 
