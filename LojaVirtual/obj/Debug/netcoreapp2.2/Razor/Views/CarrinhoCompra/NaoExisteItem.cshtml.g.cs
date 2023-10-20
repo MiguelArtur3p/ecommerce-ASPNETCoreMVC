@@ -44,7 +44,7 @@ using LojaVirtual.Models.Constants;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6f3765d3b909e6f650da814d90d6d1aed8a6762b", @"/Views/CarrinhoCompra/NaoExisteItem.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5c00832daa0ee623b7e4419251be0f0d26c88ef1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f8547e261402b874743aa1285ad7ccbae7f5b9b8", @"/Views/_ViewImports.cshtml")]
     public class Views_CarrinhoCompra_NaoExisteItem : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

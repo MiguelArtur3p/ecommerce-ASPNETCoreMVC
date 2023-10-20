@@ -43,6 +43,8 @@
           "Microsoft.VisualStudio.Web.BrowserLink": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.4",
           "Newtonsoft.Json": "12.0.1",
+          "Refit": "4.6.99",
+          "Refit.HttpClientFactory": "4.6.99",
           "X.PagedList.Mvc.Core": "7.6.0"
         },
         "runtime": {
@@ -277,6 +279,35 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "Refit/4.6.99": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Refit.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.99.36684"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Refit.dll": {}
+        }
+      },
+      "Refit.HttpClientFactory/4.6.99": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "2.2.0",
+          "Refit": "4.6.99"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Refit.HttpClientFactory.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.99.36684"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Refit.HttpClientFactory.dll": {}
         }
       },
       "System.Composition/1.0.31": {
@@ -3746,6 +3777,20 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "Refit/4.6.99": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3aJivSxfrNsFgjVrdnlsaCxh9X81+lkzFTqOB6NZ5zlk1YwuPTZMQmGZnu0GBCs2Skpo0euNqW0cbAHAdqlB5g==",
+      "path": "refit/4.6.99",
+      "hashPath": "refit.4.6.99.nupkg.sha512"
+    },
+    "Refit.HttpClientFactory/4.6.99": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+R5A+wSgwFO0jfv0pcRU8VSGz5tLiBQJujuyQQDOGjjcbhpKiMCTJxyakxaoXYlzdhn/mAgk+KVsVY1Q6x+WWw==",
+      "path": "refit.httpclientfactory/4.6.99",
+      "hashPath": "refit.httpclientfactory.4.6.99.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",

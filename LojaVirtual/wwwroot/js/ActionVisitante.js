@@ -3,7 +3,7 @@
     MudarOrdenacao();
     MudarImagemPrincipalProduto();
     MudarQuantidadeProdutoCarrinho();
-
+    AjaxLocacaoViaCep();
 });
 function numberToReal(numero) {
     var numero = numero.toFixed(2).split('.');
@@ -20,6 +20,33 @@ function MudarQuantidadeProdutoCarrinho() {
 
 
         }
+    });
+}
+
+function AjaxLocacaoViaCep() {
+    $("#buttonCep").click(function () {
+        var cep = $(this).parent().parent().find("input[name='cepLocation']").val();
+        var url = "https://viacep.com.br/ws/" + cep + "/json/";
+        fetch(url)
+            .then(function (response) {
+                if (!response.ok) throw new Error("Erro ao executar a requisição");
+                return response.json();
+            })
+            .then(function (data) {
+                if (data.erro != true) {
+                    console.log(data);
+                    $("#nameCity").text(data.localidade + "-" + data.uf);
+                } else {
+                    $("#nameCity").text("Cep inválido.");
+                }
+
+            })
+            .catch(error => {
+                console.error("Erro na requisiçao ", error.message);
+                $("#nameCity").text("Cep inválido.");
+            });
+
+
     });
 }
 
@@ -72,7 +99,7 @@ function AtualizarSubtotal() {
         var ValorReais = parseFloat($(this).text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
         Subtotal += ValorReais;
     })
-    $(".subtotal").text(numberToReal(Subtotal));
+    $("#subTotal").text(numberToReal(Subtotal));
 }
 
 function AJAXComunicarAlteracaoQuantidadeProduto(produto) {

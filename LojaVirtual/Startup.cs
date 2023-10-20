@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
+using Refit;
 using Microsoft.Extensions.Configuration;
 using LojaVirtual.Repositories;
 using LojaVirtual.Repositories.Interfaces;
@@ -40,7 +41,7 @@ namespace LojaVirtual
         public void ConfigureServices(IServiceCollection services)
         {
             //AutoMapper
-            services.AddAutoMapper(config=>config.AddProfile<MappingProfile>());
+            services.AddAutoMapper(config => config.AddProfile<MappingProfile>());
 
 
             services.AddHttpContextAccessor();
@@ -51,13 +52,16 @@ namespace LojaVirtual
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IImagemRepository, ImagemRepository>();
 
+           
+
             /**
              *SMTP 
              **/
             services.AddScoped<CarrinhoCompra>();
             services.AddScoped<LojaVirtual.Libraries.Cookie.Cookie>();
             services.AddScoped<SendEmails>();
-            services.AddScoped<SmtpClient>(options=> {
+            services.AddScoped<SmtpClient>(options =>
+            {
                 SmtpClient smtp = new SmtpClient()
                 {
                     Host = Configuration.GetValue<string>("Email:ServerSMTP"),
@@ -68,7 +72,7 @@ namespace LojaVirtual
                 };
                 return smtp;
             });
-            
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -83,7 +87,8 @@ namespace LojaVirtual
             services.AddScoped<LojaVirtual.Libraries.Cookie.Cookie>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
-            services.AddMvc(options=> {
+            services.AddMvc(options =>
+            {
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Campo obrigatorio!");
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

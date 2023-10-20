@@ -2,7 +2,9 @@
 
 @{
     ViewData["Title"] = "Index";
-    double Subtotal=0.0;
+    double Subtotal = 0.0;
+   
+
 }
 
 <div class="container">
@@ -10,7 +12,7 @@
         <br />
         <h2 class="title-doc">Carrinho de compras</h2>
         <div class="alert alert-danger" style="display:none;" role="alert">
-           
+
         </div>
         <div id="code_cart">
             <div class="card">
@@ -38,8 +40,8 @@
                                                 <dd>XXL</dd>
                                             </dl>
                                             <dl class="dlist-inline small">
-                                                <dt>Quantidade: </dt>
-                                                <dd>@item.QuantidadeProdutoCarrinho</dd>
+                                                @*<dt>Quantidade: </dt>*@
+                                                @*<dd>@item.QuantidadeProdutoCarrinho</dd>*@
                                             </dl>
                                         </figcaption>
                                     </figure>
@@ -61,7 +63,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                @{ 
+                                @{
                                     var ResultadoSubTotalItem = item.Valor * item.QuantidadeProdutoCarrinho;
                                     Subtotal += ResultadoSubTotalItem;
                                 }
@@ -98,10 +100,30 @@
                 </h4>
                 <div id="code_desc_align">
                     <div class="box">
+
+
+                        <div class="row">
+
+                            <div class="col-auto">
+                                <label style="font-weight: bold;" class="visually-hidden">CEP</label>
+
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" name="cepLocation" id="cepLocation" class="form-control">
+                            </div>
+                            <div class="align-content-lg-end">
+                                <button type="submit" id="buttonCep" class="btn btn-primary mb-3">OK</button>
+
+                            </div>
+                        </div>
+
                         <dl class="dlist-align">
-                            <dt>CEP: </dt>
-                            <dd><input type="text" name="cep" class="form-control" /> </dd>
+                            <dt>Cidade: </dt>
+
+                            <dd class="text-left subtotal" id="nameCity">Digite seu CEP</dd>
+
                         </dl>
+
                         <dl class="dlist-align">
                             <dt><input type="radio" name="frete" value="sedex" /></dt>
                             <dd>SEDEX - R$ 99,86</dd>
@@ -122,7 +144,7 @@
                     <div class="box">
                         <dl class="dlist-align">
                             <dt>Subtotal: </dt>
-                            <dd class="text-right subtotal">@Subtotal.ToString("C")</dd>
+                            <dd class="text-right" id="subTotal" name="subTotal">@Subtotal.ToString("C")</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Frete:</dt>

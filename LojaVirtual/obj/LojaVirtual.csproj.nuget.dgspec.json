@@ -107,6 +107,14 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "Refit": {
+              "target": "Package",
+              "version": "[4.6.99, )"
+            },
+            "Refit.HttpClientFactory": {
+              "target": "Package",
+              "version": "[4.6.99, )"
+            },
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[7.6.0, )"
