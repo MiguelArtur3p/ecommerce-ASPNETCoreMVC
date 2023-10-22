@@ -66,7 +66,6 @@ C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVi
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVirtual.pdb
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVirtual.Views.dll
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVirtual.Views.pdb
-C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.AssemblyReference.cache
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.Libraries.Lang.Mensagem.resources
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.GenerateResource.cache
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.GeneratedMSBuildEditorConfig.editorconfig
@@ -116,3 +115,4 @@ C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVi
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.pdb
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.genruntimeconfig.cache
 C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.CopyComplete
+C:\Desenvolvedor\Projetos\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.AssemblyReference.cache

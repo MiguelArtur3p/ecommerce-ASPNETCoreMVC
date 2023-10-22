@@ -45,7 +45,14 @@ function AjaxLocacaoViaCep() {
                 console.error("Erro na requisiçao ", error.message);
                 $("#nameCity").text("Cep inválido.");
             });
+        fetch("https://localhost:44318/api/PrecoPacotes?tipoEnvio=S")
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (data) {
 
+                console.log(data);
+            })
 
     });
 }

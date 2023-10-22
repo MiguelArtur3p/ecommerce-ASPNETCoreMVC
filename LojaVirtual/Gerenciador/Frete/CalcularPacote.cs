@@ -9,7 +9,7 @@ namespace LojaVirtual.Gerenciador.Frete
 {
     public class CalcularPacote
     {
-        public List<Pacote> CalcularPacoteDeProtudos(List<ProdutoItem> produtos)
+        public static double CalcularPacoteDeProtudos(List<ProdutoItem> produtos)
         {
             List<Pacote> pacotes = new List<Pacote>();
             Pacote pacote = new Pacote();
@@ -35,7 +35,7 @@ namespace LojaVirtual.Gerenciador.Frete
                 }
             }
             pacotes.Add(pacote);
-            return pacotes ;
+            return pacotes.Count();
 
         }
     }
