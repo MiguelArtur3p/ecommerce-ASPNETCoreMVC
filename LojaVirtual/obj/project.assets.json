@@ -13432,11 +13432,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Desenvolvedor\\Projetos\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
+      "projectUniqueName": "C:\\Developer\\Programas em C#\\Projetos\\LojaVirtualMVC\\LojaVirtual\\LojaVirtual.csproj",
       "projectName": "LojaVirtual",
-      "projectPath": "C:\\Desenvolvedor\\Projetos\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
+      "projectPath": "C:\\Developer\\Programas em C#\\Projetos\\LojaVirtualMVC\\LojaVirtual\\LojaVirtual.csproj",
       "packagesPath": "C:\\Users\\Miguel\\.nuget\\packages\\",
-      "outputPath": "C:\\Desenvolvedor\\Projetos\\LojaVirtual\\LojaVirtual\\obj\\",
+      "outputPath": "C:\\Developer\\Programas em C#\\Projetos\\LojaVirtualMVC\\LojaVirtual\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

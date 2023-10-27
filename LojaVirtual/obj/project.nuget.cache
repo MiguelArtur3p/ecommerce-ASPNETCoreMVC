@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s0jy967kMfGPRFffxZkRNjFG6S16uXRBzThFF6thWBV6BLyJ65BMPFe3hfxXrG32XOy1k4zOut5HXoHjDcGdlQ==",
+  "dgSpecHash": "4VamHmJdGkw0/i+XHr3MtUSQqGjkwYMp3pfzvfi2/8pATOkxy93LZfcZy9d7ZujecXkPcnXXEGIDDYLB/XWLjw==",
   "success": true,
-  "projectFilePath": "C:\\Desenvolvedor\\Projetos\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
+  "projectFilePath": "C:\\Developer\\Programas em C#\\Projetos\\LojaVirtualMVC\\LojaVirtual\\LojaVirtual.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Miguel\\.nuget\\packages\\automapper\\8.1.0\\automapper.8.1.0.nupkg.sha512",
     "C:\\Users\\Miguel\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\6.1.0\\automapper.extensions.microsoft.dependencyinjection.6.1.0.nupkg.sha512",

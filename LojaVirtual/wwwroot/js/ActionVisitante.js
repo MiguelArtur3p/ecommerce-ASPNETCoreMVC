@@ -27,6 +27,15 @@ function AjaxLocacaoViaCep() {
     $("#buttonCep").click(function () {
         var cep = $(this).parent().parent().find("input[name='cepLocation']").val();
         var url = "https://viacep.com.br/ws/" + cep + "/json/";
+       
+        var respostaTipoFrete;
+
+        if ($("#SEDEX").is(":checked")) {
+            respostaTipoFrete = "S";
+        } else if ($("#COMUM").is(":checked")) {
+            respostaTipoFrete = "C";
+        }
+        console.log(respostaTipoFrete);
         fetch(url)
             .then(function (response) {
                 if (!response.ok) throw new Error("Erro ao executar a requisição");
@@ -45,17 +54,25 @@ function AjaxLocacaoViaCep() {
                 console.error("Erro na requisiçao ", error.message);
                 $("#nameCity").text("Cep inválido.");
             });
-        fetch("https://localhost:44318/api/PrecoPacotes?tipoEnvio=S")
+
+        fetch("https://localhost:44318/api/PrecoPacotes/tipoEnvio?tipoFrete=" + respostaTipoFrete)
             .then(function (response) {
+                if (!response.ok) throw new Error("Erro ao executar a requisição");
                 return response.text();
             })
             .then(function (data) {
 
+                $("#freteTotal").text("R$ " + data.split(".").join(","));
                 console.log(data);
             })
+            .catch(error => {
+                console.error("Erro na requisiçao ", error.message);
+                $("#nameCity").text("Cep inválido.");
+            });
 
     });
 }
+
 
 function OrquestradorDeAcoesProduto(operacao, botao) {
     OcultarMensagemDeErro();
@@ -98,16 +115,18 @@ function AtualizarQuantidadeEValor(produto) {
     AtualizarSubtotal();
 }
 
-function AtualizarSubtotal() {
-    var Subtotal = 0;
+//function AtualizarSubtotal() {
+//    var Subtotal = 0;
 
-    var TagsComPrice = $(".price");
-    TagsComPrice.each(function () {
-        var ValorReais = parseFloat($(this).text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
-        Subtotal += ValorReais;
-    })
-    $("#subTotal").text(numberToReal(Subtotal));
-}
+//    var TagsComPrice = $(".price");
+//    TagsComPrice.each(function () {
+//        var ValorReais = parseFloat($(this).text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
+//        Subtotal += ValorReais;
+//    })
+//    $("#subTotal").text(numberToReal(Subtotal));
+
+
+//}
 
 function AJAXComunicarAlteracaoQuantidadeProduto(produto) {
     $.ajax({

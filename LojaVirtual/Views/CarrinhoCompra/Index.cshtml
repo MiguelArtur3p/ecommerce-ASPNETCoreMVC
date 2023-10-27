@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Index";
     double Subtotal = 0.0;
-   
-
+    double respostaTipoFrete=0.0;
+    double total = 0.0;
 }
 
 <div class="container">
@@ -64,7 +64,7 @@
                                     </div>
                                 </td>
                                 @{
-                                    var ResultadoSubTotalItem = item.Valor * item.QuantidadeProdutoCarrinho;
+                                   var ResultadoSubTotalItem = item.Valor * item.QuantidadeProdutoCarrinho;
                                     Subtotal += ResultadoSubTotalItem;
                                 }
                                 <td>
@@ -125,12 +125,12 @@
                         </dl>
 
                         <dl class="dlist-align">
-                            <dt><input type="radio" name="frete" value="sedex" /></dt>
-                            <dd>SEDEX - R$ 99,86</dd>
+                            <dt><input type="radio" id="SEDEX" name="frete" value="S" /> Sedex</dt>
+                            <dd>35,00 p/Pacote</dd>
                         </dl>
                         <dl class="dlist-align">
-                            <dt><input type="radio" name="frete" value="pac" /></dt>
-                            <dd>PAC - R$ 66,30</dd>
+                            <dt><input type="radio" id="COMUM" name="frete" value="C" /> Comum</dt>
+                            <dd>25,00 p/Pacote</dd>
                         </dl>
                     </div> <!-- box.// -->
                 </div> <!-- code-wrap.// -->
@@ -144,15 +144,15 @@
                     <div class="box">
                         <dl class="dlist-align">
                             <dt>Subtotal: </dt>
-                            <dd class="text-right" id="subTotal" name="subTotal">@Subtotal.ToString("C")</dd>
+                            <dd class="text-right" id="subTotal" name="subTotal" value="@Subtotal">@Subtotal.ToString("C")</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Frete:</dt>
-                            <dd class="text-right">R$ 66,30</dd>
+                            <dd id="freteTotal" class="text-right">@respostaTipoFrete.ToString("C")</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>TOTAL:</dt>
-                            <dd class="text-right">R$ 186,30</dd>
+                            <dd class="text-right" id="valorTotal" name="valorTotal">@total.ToString("C")</dd>
                         </dl>
                     </div> <!-- box.// -->
                 </div> <!-- code-wrap.// -->
