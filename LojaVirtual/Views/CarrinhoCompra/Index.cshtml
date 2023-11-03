@@ -32,7 +32,7 @@
                             <tr>
                                 <td>
                                     <figure class="media">
-                                        <div class="img-wrap"><img href="@item.Imagens" class="img-thumbnail img-sm"></div>
+                                        <div class="img-wrap"><img src="@item.Imagens.ElementAt(0).Caminho" class="img-thumbnail img-sm"></div>
                                         <figcaption class="media-body">
                                             <h6 class="title text-truncate">@item.Nome </h6>
                                             <dl class="dlist-inline small">
@@ -123,15 +123,16 @@
                             <dd class="text-left subtotal" id="nameCity">Digite seu CEP</dd>
 
                         </dl>
-
-                        <dl class="dlist-align">
-                            <dt><input type="radio" id="SEDEX" name="frete" value="S" /> Sedex</dt>
-                            <dd>35,00 p/Pacote</dd>
-                        </dl>
-                        <dl class="dlist-align">
-                            <dt><input type="radio" id="COMUM" name="frete" value="C" /> Comum</dt>
-                            <dd>25,00 p/Pacote</dd>
-                        </dl>
+                        <div class="HiddenOnOrOf" id="HiddenOnOrOf">
+                            <dl class="dlist-align">
+                                <dt><input type="radio" id="SEDEX" name="frete" value="S" /> SEDEX</dt>
+                                <dd>35,00 p/Pct, 3 dias úteis</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                                <dt><input type="radio" id="COMUM" name="frete" value="C" /> PAC</dt>
+                                <dd>25,00 p/Pct, 7 dias úteis</dd>
+                            </dl>
+                        </div>
                     </div> <!-- box.// -->
                 </div> <!-- code-wrap.// -->
             </aside>

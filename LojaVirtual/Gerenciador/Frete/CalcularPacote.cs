@@ -23,7 +23,7 @@ namespace LojaVirtual.Gerenciador.Frete
                     var altura=pacote.Altura+item.Altura;
 
                     var dimensao = comprimento + largura + altura;
-                    if(peso > 30 || dimensao > 200)
+                    if(peso > 30 || dimensao > 200 || altura > 105 || comprimento >105 || largura >105)
                     {
                         pacotes.Add(pacote);
                         pacote = new Pacote();

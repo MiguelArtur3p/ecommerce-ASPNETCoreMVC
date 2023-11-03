@@ -1,10 +1,16 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
     MoverScrollOrdenacao();
     MudarOrdenacao();
     MudarImagemPrincipalProduto();
     MudarQuantidadeProdutoCarrinho();
     AjaxLocacaoViaCep();
+    MascaraCEP();
+    AddOrRemoveItem();
 });
+function MascaraCEP() {
+    $("#cepLocation").mask("00.000-000");
+}
 function numberToReal(numero) {
     var numero = numero.toFixed(2).split('.');
     numero[0] = "R$" + numero[0].split(/(?=(?:...)*$)/).join('.');
@@ -22,12 +28,27 @@ function MudarQuantidadeProdutoCarrinho() {
         }
     });
 }
-
+function AddOrRemoveItem() {
+    $("#order .btn-primary").click(function () {
+        var cepp = $("#buttonCep").parent().parent().find("input[name='cepLocation']").val();
+        
+        console.log(cepp);
+        if (cepp != null & cepp != "") {
+            $("#buttonCep").click();
+        } else {
+            $("#freteTotal").text("R$ 0,00");
+            $("#valorTotal").text("R$ 0,00");
+        }
+    });
+}
 function AjaxLocacaoViaCep() {
     $("#buttonCep").click(function () {
-        var cep = $(this).parent().parent().find("input[name='cepLocation']").val();
+        var cep = $(this).parent().parent().find("input[name='cepLocation']").val().replace(".", "").replace("-", "");
+
         var url = "https://viacep.com.br/ws/" + cep + "/json/";
-       
+        var subtotal = $(".price");
+        var subTotalLimpo = parseFloat(subtotal.text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
+
         var respostaTipoFrete;
 
         if ($("#SEDEX").is(":checked")) {
@@ -35,7 +56,7 @@ function AjaxLocacaoViaCep() {
         } else if ($("#COMUM").is(":checked")) {
             respostaTipoFrete = "C";
         }
-        console.log(respostaTipoFrete);
+        
         fetch(url)
             .then(function (response) {
                 if (!response.ok) throw new Error("Erro ao executar a requisição");
@@ -43,8 +64,8 @@ function AjaxLocacaoViaCep() {
             })
             .then(function (data) {
                 if (data.erro != true) {
-                    console.log(data);
                     $("#nameCity").text(data.localidade + "-" + data.uf);
+                    $("#HiddenOnOrOf").removeClass("HiddenOnOrOf");
                 } else {
                     $("#nameCity").text("Cep inválido.");
                 }
@@ -61,13 +82,14 @@ function AjaxLocacaoViaCep() {
                 return response.text();
             })
             .then(function (data) {
-
+                var Total = subTotalLimpo + parseFloat(data);
                 $("#freteTotal").text("R$ " + data.split(".").join(","));
-                console.log(data);
+                $("#valorTotal").text(numberToReal(Total));
+
             })
             .catch(error => {
-                console.error("Erro na requisiçao ", error.message);
-                $("#nameCity").text("Cep inválido.");
+                console.error(error.message);
+
             });
 
     });
@@ -115,18 +137,19 @@ function AtualizarQuantidadeEValor(produto) {
     AtualizarSubtotal();
 }
 
-//function AtualizarSubtotal() {
-//    var Subtotal = 0;
+function AtualizarSubtotal() {
+    var Subtotal = 0;
 
-//    var TagsComPrice = $(".price");
-//    TagsComPrice.each(function () {
-//        var ValorReais = parseFloat($(this).text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
-//        Subtotal += ValorReais;
-//    })
-//    $("#subTotal").text(numberToReal(Subtotal));
+    var TagsComPrice = $(".price");
+
+    TagsComPrice.each(function () {
+        var ValorReais = parseFloat($(this).text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
+        Subtotal += ValorReais;
+    })
+    $("#subTotal").text(numberToReal(Subtotal));
 
 
-//}
+}
 
 function AJAXComunicarAlteracaoQuantidadeProduto(produto) {
     $.ajax({

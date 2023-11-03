@@ -125,6 +125,7 @@ C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\bin\Debug\netco
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVirtual.pdb
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVirtual.Views.dll
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\bin\Debug\netcoreapp2.2\LojaVirtual.Views.pdb
+C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.AssemblyReference.cache
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.Libraries.Lang.Mensagem.resources
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.GenerateResource.cache
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.GeneratedMSBuildEditorConfig.editorconfig
@@ -174,4 +175,3 @@ C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netco
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.pdb
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.genruntimeconfig.cache
 C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.CopyComplete
-C:\Developer\Programas em C#\Projetos\LojaVirtualMVC\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.AssemblyReference.cache
