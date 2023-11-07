@@ -38,8 +38,8 @@ namespace LojaVirtual.Controllers
             {
 
                 Produto produto = _produtoRepository.ObterProduto(item.Id);
-
-                ProdutoItem produtoItem = _mapper.Map<ProdutoItem>(produto);
+                ProdutoItem produtoItem = new ProdutoItem();
+                produtoItem = _mapper.Map<ProdutoItem>(produto);
                 produtoItem.QuantidadeProdutoCarrinho = item.QuantidadeProdutoCarrinho;
                 produtoItemCompleto.Add(produtoItem);
             }
@@ -72,6 +72,7 @@ namespace LojaVirtual.Controllers
             if (quantidade < 1)
             {
                 return BadRequest(new { mensagem = Mensagem.MSG_E007 });
+
             }
             else if (quantidade > produto.Quantidade)
             {

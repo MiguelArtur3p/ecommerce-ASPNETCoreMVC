@@ -7,6 +7,8 @@ $(document).ready(function () {
     AjaxLocacaoViaCep();
     MascaraCEP();
     AddOrRemoveItem();
+    TipoEntrega();
+    /* PrecoPacote();*/
 });
 function MascaraCEP() {
     $("#cepLocation").mask("00.000-000");
@@ -31,32 +33,70 @@ function MudarQuantidadeProdutoCarrinho() {
 function AddOrRemoveItem() {
     $("#order .btn-primary").click(function () {
         var cepp = $("#buttonCep").parent().parent().find("input[name='cepLocation']").val();
-        
-        console.log(cepp);
+        var quantidade = $(".inputQuantidadeEstoque").val();
+
+        console.log(quantidade);
         if (cepp != null & cepp != "") {
-            $("#buttonCep").click();
+            if ($("#SEDEX").is(":checked")) {
+                respostaTipoFrete = "S";
+                PrecoPacote(respostaTipoFrete);
+            } else if ($("#COMUM").is(":checked")) {
+                respostaTipoFrete = "C";
+                PrecoPacote(respostaTipoFrete);
+            }
+
         } else {
             $("#freteTotal").text("R$ 0,00");
             $("#valorTotal").text("R$ 0,00");
+
         }
     });
+}
+function TipoEntrega() {
+    var respostaTipoFrete;
+    $("#SEDEX").click(function () {
+        respostaTipoFrete = "S";
+        $.cookie("Carrinho.TipoFrete", respostaTipoFrete);
+        PrecoPacote(respostaTipoFrete);
+    });
+    $("#COMUM").click(function () {
+        respostaTipoFrete = "C";
+        $.cookie("Carrinho.TipoFrete", respostaTipoFrete);
+        PrecoPacote(respostaTipoFrete);
+    });
+}
+function PrecoPacote(respostaTipoFrete) {
+    var subtotal = $(".price");
+    var subTotalLimpo = parseFloat(subtotal.text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
+    var quantidade = $(".inputQuantidadeEstoque").val();
+    fetch("https://localhost:44318/api/PrecoPacotes/tipoEnvio?tipoFrete=" + respostaTipoFrete)
+        .then(function (response) {
+            if (!response.ok) throw new Error("Erro ao executar a requisição");
+            return response.text();
+        })
+        .then(function (data) {
+            var Total = subTotalLimpo + parseFloat(data);
+            $("#freteTotal").text("R$ " + data.split(".").join(","));
+            if (quantidade < 1) {
+                $("#valorTotal").text("R$ 0,00");
+            }
+            $("#valorTotal").text(numberToReal(Total));
+
+
+        })
+        .catch(error => {
+            console.error(error.message);
+
+        });
 }
 function AjaxLocacaoViaCep() {
     $("#buttonCep").click(function () {
         var cep = $(this).parent().parent().find("input[name='cepLocation']").val().replace(".", "").replace("-", "");
 
         var url = "https://viacep.com.br/ws/" + cep + "/json/";
-        var subtotal = $(".price");
-        var subTotalLimpo = parseFloat(subtotal.text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
 
-        var respostaTipoFrete;
+        $.removeCookie("Carrinho.TipoFrete");
 
-        if ($("#SEDEX").is(":checked")) {
-            respostaTipoFrete = "S";
-        } else if ($("#COMUM").is(":checked")) {
-            respostaTipoFrete = "C";
-        }
-        
         fetch(url)
             .then(function (response) {
                 if (!response.ok) throw new Error("Erro ao executar a requisição");
@@ -76,21 +116,7 @@ function AjaxLocacaoViaCep() {
                 $("#nameCity").text("Cep inválido.");
             });
 
-        fetch("https://localhost:44318/api/PrecoPacotes/tipoEnvio?tipoFrete=" + respostaTipoFrete)
-            .then(function (response) {
-                if (!response.ok) throw new Error("Erro ao executar a requisição");
-                return response.text();
-            })
-            .then(function (data) {
-                var Total = subTotalLimpo + parseFloat(data);
-                $("#freteTotal").text("R$ " + data.split(".").join(","));
-                $("#valorTotal").text(numberToReal(Total));
 
-            })
-            .catch(error => {
-                console.error(error.message);
-
-            });
 
     });
 }
@@ -123,8 +149,12 @@ function AlteracoesVisuaisProdutoCarrinho(produto, operacao) {
              alert("Caso não deseje este produto clique em Remover!")
          } else*/
         produto.quantidadeProdutoCarrinhoNova = produto.quantidadeProdutoCarrinhoAntiga - 1;
-        AtualizarQuantidadeEValor(produto);
-        AJAXComunicarAlteracaoQuantidadeProduto(produto);
+        if (produto.quantidadeProdutoCarrinhoAntiga > 1) {
+            AtualizarQuantidadeEValor(produto);
+            AJAXComunicarAlteracaoQuantidadeProduto(produto);
+        } else {
+            alert("Quantidade do produto não pode ser menor que 0, caso não queira o produto, clique em remover!")
+        }
 
     }
 }
